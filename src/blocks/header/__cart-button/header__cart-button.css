@@ -1,0 +1,6 @@
+.header__cart-button {
+  display: flex;
+  border: 1px solid #2872f0;
+  border-radius: 2px;
+  padding: 7px 10px;
+}
