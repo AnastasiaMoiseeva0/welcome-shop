@@ -11,3 +11,7 @@
 @import url(./blocks/header/__search/header__search.css);
 @import url(./blocks/button/_type/button_type_transparent.css);
 @import url(./blocks/button/button.css);
+@import url(./blocks/main-content/main-content.css);
+@import url(./blocks/lead/lead.css);
+@import url(./blocks/lead/__image/lead__image.css);
+@import url(./blocks/lead/__title/lead__title.css);
