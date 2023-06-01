@@ -14,6 +14,12 @@
   margin-right: 32px;
 }
 
+@media screen and (min-width: 1024px) {
+  .header__products-button {
+    margin-right: 39px;
+  }
+}
+
 @media screen and (min-width: 1920px) {
   .header__products-button {
     margin-right: 96px;
