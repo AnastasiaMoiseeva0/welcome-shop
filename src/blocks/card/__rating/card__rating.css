@@ -1,0 +1,8 @@
+.card__rating {
+    width: 20px;
+    height: 20px;
+    color: #787885;
+    display: flex;
+    flex-direction: row;
+    padding-left: 18px;
+}
