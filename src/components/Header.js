@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../images/logo.svg";
 
 function Header() {
+
   return (
     <div>
       <header className="header">
