@@ -1,0 +1,10 @@
+.card__price {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  padding-left: 17px;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+  margin: 0;
+}
