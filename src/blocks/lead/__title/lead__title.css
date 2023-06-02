@@ -9,6 +9,7 @@
   justify-content: center;
   padding-top: 76px;
   padding-left: 27px;
+  margin: 0;
 }
 
 @media screen and (min-width: 1024px) {

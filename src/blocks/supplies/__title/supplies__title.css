@@ -1,0 +1,25 @@
+.supplies__title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  padding-left: 16px;
+  padding-bottom: 21px;
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .supplies__title {
+    font-size: 60px;
+    padding-left: 65px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .supplies__title {
+    font-size: 72px;
+    padding-left: 135px;
+    padding-bottom: 80px;
+  }
+}
