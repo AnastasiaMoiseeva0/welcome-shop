@@ -2,6 +2,8 @@ import ProductsCard from "./ProductsCard";
 import { suppliesCards } from "../utils/cards";
 
 function Main() {
+    
+
   return (
     <div>
       <main className="main-content">
@@ -13,7 +15,7 @@ function Main() {
         <section className="supplies">
             <h2 className="supplies__title">Top Products</h2>   
             <div className="supplies__cards">
-                { suppliesCards.map((id) => <ProductsCard key={id} url={id.url} description={id.description} price={id.price} caption={id.caption}/>) }
+                {suppliesCards.slice(0, 5).map((id) => <ProductsCard key={id} url={id.url} description={id.description} price={id.price} caption={id.caption}/>) }
             </div>
         </section>
       </main>
