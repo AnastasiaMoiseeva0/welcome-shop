@@ -1,8 +1,7 @@
 .card__url {
-    background-image: url(../../../images/typewriter.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 224px;
-    border-radius: 2px;
+    border-radius: 4px;
     margin: 16px;
 }

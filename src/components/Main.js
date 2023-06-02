@@ -1,4 +1,5 @@
 import ProductsCard from "./ProductsCard";
+import { suppliesCards } from "../utils/cards";
 
 function Main() {
   return (
@@ -10,9 +11,9 @@ function Main() {
           </div>
         </section>
         <section className="supplies">
-            <h2 className="supplies__title">Top Products</h2>
+            <h2 className="supplies__title">Top Products</h2>   
             <div className="supplies__cards">
-                <ProductsCard />
+                { suppliesCards.map((id) => <ProductsCard key={id} url={id.url} description={id.description} price={id.price} caption={id.caption}/>) }
             </div>
         </section>
       </main>

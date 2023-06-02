@@ -21,7 +21,7 @@
   }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1280px) {
   .lead__title {
     padding-top: 231px;
     font-size: 175px;
