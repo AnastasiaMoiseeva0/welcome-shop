@@ -1,15 +1,15 @@
 .supplies {
-    margin-top: 81px;
+  margin-top: 81px;
 }
 
 @media screen and (min-width: 1024px) {
-    .supplies {
-        margin-top: 0px;
-    }
+  .supplies {
+    margin-top: 0px;
+  }
 }
 
 @media screen and (min-width: 1920px) {
-    .supplies {
-        margin-top: 25px;
-    }
+  .supplies {
+    margin-top: 25px;
+  }
 }

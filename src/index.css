@@ -25,3 +25,14 @@
 @import url(./blocks/card/__rating-icon/card__rating-icon.css);
 @import url(./blocks/card/__rating/card__rating.css);
 @import url(./blocks/card/__url/card__url.css);
+@import url(./blocks/menu/menu.css);
+@import url(./blocks/menu/__header-icon/menu__header-icon.css);
+@import url(./blocks/menu/__header-logo/menu__header-logo.css);
+@import url(./blocks/menu/__header/menu__header.css);
+@import url(./blocks/menu/__icon/menu__icon.css);
+@import url(./blocks/menu/__link-name/menu__link-name.css);
+@import url(./blocks/menu/__link/menu__link.css);
+@import url(./blocks/menu/__nav/menu__nav.css);
+@import url(./blocks/menu/_opened/menu_opened.css);
+@import url(./blocks/menu/__list/menu__list.css);
+@import url(./blocks/menu/__button-list/menu__button-list.css);

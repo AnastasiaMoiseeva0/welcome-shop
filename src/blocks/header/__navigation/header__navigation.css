@@ -1,12 +1,11 @@
 .header__navigation {
-    display: none;
+  display: none;
 }
 
-
 @media screen and (min-width: 1024px) {
-    .header__navigation {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+  .header__navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
