@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from './Header';
 import Main from './Main';
 import Menu from './Menu';
+import ProductsPage from './ProductsPage';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         isOpen={isMenuOpen}
         onClose={closeMenu}
       />
+      <ProductsPage />
     </div>
   );
 }
