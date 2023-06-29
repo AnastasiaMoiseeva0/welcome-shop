@@ -36,3 +36,6 @@
 @import url(./blocks/menu/_opened/menu_opened.css);
 @import url(./blocks/menu/__list/menu__list.css);
 @import url(./blocks/menu/__button-list/menu__button-list.css);
+@import url(./blocks/products/products.css);
+@import url(./blocks/products/__list/products__list.css);
+@import url(./blocks/products/__link/products__link.css);

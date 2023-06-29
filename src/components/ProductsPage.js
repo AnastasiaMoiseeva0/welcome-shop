@@ -7,14 +7,24 @@ function ProductsPage() {
   return (
     <div>
       <Header />
-      <div>
-        <Link />
-      </div>
-      <div>
-      {suppliesCards.map((id) => <ProductsCard key={id} url={id.url} description={id.description} price={id.price} caption={id.caption}/>) }
+      <div className="products">
+        <div className="products__link">
+          <Link />
+        </div>
+        <div className="products__list">
+          {suppliesCards.map((id) => (
+            <ProductsCard
+              key={id}
+              url={id.url}
+              description={id.description}
+              price={id.price}
+              caption={id.caption}
+            />
+          ))}
+        </div>
       </div>
     </div>
-  )
- }
- 
+  );
+}
+
 export default ProductsPage;

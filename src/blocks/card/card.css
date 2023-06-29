@@ -1,9 +1,11 @@
 .card {
   border-radius: 8px;
+  box-sizing: border-box;
   width: 259px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 16px;
 }
 
 .card:hover {

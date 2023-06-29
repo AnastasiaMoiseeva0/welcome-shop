@@ -20,7 +20,6 @@
   .supplies__cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 97px;
-    justify-content: center;
     margin-left: 40px;
     margin-right: 40px;
   }
