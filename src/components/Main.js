@@ -2,8 +2,6 @@ import ProductsCard from "./ProductsCard";
 import { suppliesCards } from "../utils/cards";
 
 function Main() {
-    
-
   return (
     <div>
       <main className="main-content">
