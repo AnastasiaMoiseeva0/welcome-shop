@@ -1,5 +1,5 @@
 import ProductsCard from "./ProductsCard";
-import { suppliesCards } from "../utils/cards";
+import suppliesCards from "../utils/suppliesCards.json";
 
 function Main() {
   return (

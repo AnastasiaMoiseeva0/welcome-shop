@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Link from "./Link";
-import { suppliesCards } from "../utils/cards";
+import suppliesCards from "../utils/suppliesCards.json";
 import ProductsCard from "./ProductsCard";
 
 function ProductsPage() {
