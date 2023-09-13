@@ -1,0 +1,32 @@
+.menu-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+.menu-list__link {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+}
+
+.menu-list__icon {
+    width: 20px;
+    height: 20px;
+    color: #2872f0;
+    display: flex;
+    align-self: center;
+}
+
+.menu-list__link-name {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #2872f0;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
