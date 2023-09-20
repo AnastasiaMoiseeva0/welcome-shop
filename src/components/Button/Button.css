@@ -1,3 +1,7 @@
+.button:hover {
+  cursor: pointer;
+}
+
 .button_type_transparent {
   background-color: transparent;
 }

@@ -2,30 +2,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../../images/logo.svg";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Header.css";
+import Button from "../Button/Button";
 
 function Header({ onMenuOpen }) {
-  
-
   return (
     <div>
       <header className="header">
         <img className="header__logo" alt="Логотип сайта" src={logo} />
-        <button className="button button_type_transparent header__button">
-          <FontAwesomeIcon
-            className="header__icon"
-            icon={"bars"}
-            onClick={onMenuOpen}
-          />
-        </button>
+        <Button
+          className="header__button"
+          transparentButton="transparent"
+          onClick={onMenuOpen}
+        >
+          <FontAwesomeIcon className="header__icon" icon={"bars"} />
+        </Button>
         <SearchBar />
         <div className="header__navigation">
-          <button className="button header__products-button">
-            all products
-          </button>
-          <button className="button button_type_transparent header__cart-button">
+          <Button className="header__products-button">all products</Button>
+          <Button
+            className="header__cart-button"
+            transparentButton="transparent"
+          >
             <FontAwesomeIcon className="header__icon" icon={"cart-shopping"} />
             <p className="header__cart">my cart</p>
-          </button>
+          </Button>
         </div>
       </header>
     </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useForm } from "../../hooks/useForm";
+import "./SearchBar.css";
 
 function SearchBar({ onSearch }) {
   const [search, setSearch] = useState();
@@ -28,10 +29,10 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <form onSubmit={(e) => handleSearch(e)}>
+    <form className="search-bar" onSubmit={(e) => handleSearch(e)}>
       <input
+        className="search-bar__input"
         ref={input}
-        className="header__search"
         onChange={(e) => handleSearchChange(e)}
         placeholder= "Search"
         value={search}

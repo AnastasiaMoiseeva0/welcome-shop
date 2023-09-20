@@ -19,13 +19,7 @@ function App() {
 
   return (
     <div>
-      <Header 
-        onMenuOpen={() => handleMenuClick()}/>
-      <Main />
-      <Menu   
-        isOpen={isMenuOpen}
-        onClose={closeMenu}
-      />
+
       <MyCartList />
     </div>
   );
