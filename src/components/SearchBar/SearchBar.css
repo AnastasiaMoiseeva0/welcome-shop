@@ -1,0 +1,32 @@
+.search-bar {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .search-bar {
+    display: inherit;
+    width: 384px;
+    border: solid 1px grey;
+    border-radius: 2px;
+    opacity: 0.8;
+    margin-right: 0;
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .search-bar {
+    display: inherit;
+    width: 484px;
+    margin-right: 250px;
+  }
+}
+
+.search-bar__input {
+  border: none;
+}

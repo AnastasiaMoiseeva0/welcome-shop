@@ -1,0 +1,106 @@
+.my-cart {
+  margin-top: 49px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+@media screen and (min-width: 1024px) {
+  .my-cart {
+    margin-top: 103px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .my-cart {
+    margin-top: 99px;
+    margin-left: 220px;
+  }
+}
+
+.my-cart__title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #000;
+  padding-bottom: 42px;
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .my-cart__title {
+    font-size: 72px;
+    padding-bottom: 88px;
+    letter-spacing: 1px;
+  }
+}
+
+.my-cart__container {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+@media screen and (min-width: 1920px) {
+  .my-cart__container {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.my-cart__list {
+  max-width: 396px;
+}
+
+@media screen and (min-width: 1024px) {
+  .my-cart__list {
+    max-width: 698px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .my-cart__list {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+}
+
+.my-cart__price {
+  margin: 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 39px;
+  color: #000;
+  border-radius: 16px;
+  padding-left: 30px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: start;
+}
+
+@media screen and (min-width: 1024px) {
+  .my-cart__price {
+    margin-top: 59px;
+    padding-left: 27px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .my-cart__price {
+    margin-top: 16px;
+    padding-left: 30px;
+    padding-right: 52px;
+    min-width: 205px;
+  }
+}
+
+.my-cart__price:hover {
+  box-shadow: 0px 2px 4px rgba(59, 69, 123, 0.2),
+    0px 4px 8px rgba(92, 107, 192, 0.2);
+}

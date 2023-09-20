@@ -1,0 +1,76 @@
+.supplies {
+  margin-top: 81px;
+}
+
+@media screen and (min-width: 1024px) {
+  .supplies {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .supplies {
+    margin-top: 25px;
+  }
+}
+
+.supplies__title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  padding-left: 16px;
+  padding-bottom: 21px;
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .supplies__title {
+    font-size: 60px;
+    padding-left: 65px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .supplies__title {
+    font-size: 72px;
+    padding-left: 135px;
+    padding-bottom: 80px;
+  }
+}
+
+.supplies__cards {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  justify-items: center;
+  row-gap: 30px;
+}
+
+@media screen and (min-width: 1024px) {
+  .supplies__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 97px;
+    row-gap: 2px;
+    justify-content: center;
+    margin-left: 27px;
+    margin-right: 27px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .supplies__cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 97px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .supplies__cards {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin-right: 130px;
+    margin-left: 130px;
+  }
+}
