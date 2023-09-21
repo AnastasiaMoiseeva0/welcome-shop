@@ -104,3 +104,12 @@
   box-shadow: 0px 2px 4px rgba(59, 69, 123, 0.2),
     0px 4px 8px rgba(92, 107, 192, 0.2);
 }
+
+.my-cart__empty {
+  margin: 0;
+  padding-top: 40px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  color:gray;
+  text-align: center;
+}

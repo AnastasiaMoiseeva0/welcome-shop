@@ -1,29 +1,43 @@
 import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
-import suppliesCards from "../../utils/suppliesCards.json";
-import Header from "../Header/Header";
 import "./MyCartList.css";
 
-function MyCartList() {
+function MyCartList({ orders, onDelete }) {
+
+  const showOrders = (orders) => {
+    let totalPrice = 0;
+    orders.forEach(card => totalPrice += Number.parseFloat(card.price))
+    return (
+      <>
+        {orders.map((card) => (
+          <MyCart
+            key={card.id}
+            card={card}
+            onDelete={onDelete}
+          />
+        ))}
+        <p className="my-cart__price">
+          Total: {new Intl.NumberFormat().format(totalPrice)}$
+        </p>
+      </>
+    );
+  };
+
+  const showNothing = () => {
+    return (
+      <div className="my-cart__empty">
+        <h2>Products not added</h2>
+      </div>
+    );
+  };
+
   return (
     <>
-      <Header />
       <section className="my-cart">
         <h1 className="my-cart__title">My Cart</h1>
         <div className="my-cart__container">
           <div className="my-cart__list">
-            {suppliesCards.slice(0, 3).map((id) => (
-              <MyCart
-                key={id}
-                url={id.url}
-                description={id.description}
-                price={id.price}
-                caption={id.caption}
-              />
-            ))}
-            <p className="my-cart__price">
-              Total: <span>396$</span>
-            </p>
+            {orders.length > 0 ? showOrders(orders) : showNothing()}
           </div>
           <PayCheckbox />
         </div>

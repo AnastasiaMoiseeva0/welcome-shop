@@ -1,30 +1,26 @@
-import Header from "./Header";
-import Link from "./Link";
+import MenuList from "../MenuList/MenuList";
 import suppliesCards from "../../utils/suppliesCards.json";
-import ProductsCard from "./ProductsCard";
-import "ProductsPage.css";
+import ProductsCard from "../ProductsCard/ProductsCard";
+import "./ProductsPage.css";
 
-function ProductsPage() {
+function ProductsPage({onAddProduct}) {
   return (
-    <div>
-      <Header />
-      <div className="products">
+    <>
+      <section className="products">
         <div className="products__link">
-          <Link />
+          <MenuList />
         </div>
         <div className="products__list">
-          {suppliesCards.map((id) => (
+          {suppliesCards.map((card) => (
             <ProductsCard
-              key={id}
-              url={id.url}
-              description={id.description}
-              price={id.price}
-              caption={id.caption}
+              key={card.id}
+              card={card}
+              onAddProduct={onAddProduct}
             />
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Menu.css";
 import logo from "../../images/logo.svg";
-import Link from "../Link/Link";
+import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
 
 function Menu({ isOpen, onClose }) {
@@ -31,7 +31,7 @@ function Menu({ isOpen, onClose }) {
             <p className="header__cart">my cart</p>
           </Button>
         </div>
-        <Link />
+        <MenuList />
       </nav>
     </div>
   );
