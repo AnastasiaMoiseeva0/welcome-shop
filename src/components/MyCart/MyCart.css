@@ -40,15 +40,13 @@
   height: 100px;
   width: 100px;
   border-radius: 4px;
-  margin: 23px 38px 17px 23px;
+  margin: 23px 23px 17px 23px;
 }
 
 @media screen and (min-width: 1024px) {
   .cart__url {
     height: 160px;
     width: 160px;
-    margin-bottom: 15px;
-    margin-right: 31px;
   }
 }
 

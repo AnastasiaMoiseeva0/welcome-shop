@@ -1,3 +1,4 @@
+import {Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../../images/logo.svg";
 import SearchBar from "../SearchBar/SearchBar";
@@ -18,13 +19,15 @@ function Header({ onMenuOpen }) {
         </Button>
         <SearchBar />
         <div className="header__navigation">
-          <Button className="header__products-button">all products</Button>
+          <Button className="header__products-button">
+            <Link to="/products" className="header__products">all products</Link>
+            </Button>
           <Button
             className="header__cart-button"
             transparentButton="transparent"
           >
             <FontAwesomeIcon className="header__icon" icon={"cart-shopping"} />
-            <p className="header__cart">my cart</p>
+            <Link to="/my-cart" className="header__cart">my cart</Link>
           </Button>
         </div>
       </header>

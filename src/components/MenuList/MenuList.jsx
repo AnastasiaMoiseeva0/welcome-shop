@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Link.css";
+import "./MenuList.css";
 
-function Link() {
+function MenuList() {
   return (
     <ul className="menu-list">
       <li className="menu-list__link">
@@ -44,4 +44,4 @@ function Link() {
   );
 }
 
-export default Link;
+export default MenuList;
