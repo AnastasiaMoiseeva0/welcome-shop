@@ -1,0 +1,52 @@
+[
+  {
+    "key": "all",
+    "name": "all products",
+    "icon": "store"
+  },
+  {
+    "key": "clothing & shoes",
+    "name": "clothing & shoes",
+    "icon": "shirt"
+  },
+  {
+    "key": "entertainment",
+    "name": "entertainment",
+    "icon": "film"
+  },
+  {
+    "key": "music",
+    "name": "music",
+    "icon": "music"
+  },
+  {
+    "key": "sport & lifestyle",
+    "name": "sport & lifestyle",
+    "icon": "bicycle"
+  },
+  {
+    "key": "pets",
+    "name": "pets",
+    "icon": "paw"
+  },
+  {
+    "key": "travel equipment",
+    "name": "travel equipment",
+    "icon": "suitcase"
+  },
+  {
+    "key": "electrical tools",
+    "name": "electrical tools",
+    "icon": "plug"
+  },
+  {
+    "key": "growing & garden",
+    "name": "growing & garden",
+    "icon": "seedling"
+  },
+  {
+    "key": "kitchen accessories",
+    "name": "kitchen accessories",
+    "icon": "kitchen-set"
+  }
+]

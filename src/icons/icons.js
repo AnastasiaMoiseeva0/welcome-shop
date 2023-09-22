@@ -12,6 +12,7 @@ import { faPlug } from '@fortawesome/free-solid-svg-icons';
 import { faSeedling } from '@fortawesome/free-solid-svg-icons';
 import { faKitchenSet } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faStore } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faBars);
 library.add(faCartShopping);
@@ -26,3 +27,4 @@ library.add(faPlug);
 library.add(faSeedling);
 library.add(faKitchenSet);
 library.add(faCircleXmark);
+library.add(faStore);
