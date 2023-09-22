@@ -1,14 +1,13 @@
 import MenuList from "../MenuList/MenuList";
-import suppliesCards from "../../utils/suppliesCards.json";
 import ProductsCard from "../ProductsCard/ProductsCard";
 import "./ProductsPage.css";
 
-function ProductsPage({onAddProduct}) {
+function ProductsPage({suppliesCards, onAddProduct, chooseCategory}) {
   return (
     <>
       <section className="products">
         <div className="products__link">
-          <MenuList />
+          <MenuList chooseCategory={chooseCategory}/>
         </div>
         <div className="products__list">
           {suppliesCards.map((card) => (

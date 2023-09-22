@@ -7,7 +7,7 @@ function Supplies() {
         <section className="supplies">
         <h2 className="supplies__title">Top Products</h2>   
         <div className="supplies__cards">
-            {suppliesCards.slice(0, 5).map((id) => <ProductsCard key={id} url={id.url} description={id.description} price={id.price} caption={id.caption}/>) }
+            {suppliesCards.slice(0, 5).map((card) => <ProductsCard key={card.id} card={card}/>) }
         </div>
     </section>
     )
