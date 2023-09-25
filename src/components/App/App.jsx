@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
@@ -10,7 +10,24 @@ import suppliesCards from "../../utils/suppliesCards.json";
 function App({ setMenuOpen }) {
   const [orders, setOrders] = useState([]);
   const [currentItems, setCurrentItems] = useState([...suppliesCards]);
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('all');
 
+
+  useEffect(() => {
+    let filtred = suppliesCards;
+
+    if(category !== 'all') {
+      filtred = filtred.filter(card => card.category === category);
+    }
+
+    if(search) {
+      filtred = filtred.filter(card => card.description.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    setCurrentItems(filtred);
+
+  }, [category, search]);
 
   function addToOrder(card) {
     let isInArray = false;
@@ -29,11 +46,7 @@ function App({ setMenuOpen }) {
   }
 
   function chooseCategory(category) {
-    if(category === 'all') {
-      setCurrentItems(suppliesCards)
-      return
-    }
-    setCurrentItems(suppliesCards.filter(el => el.category === category));
+    setCategory(category);
   }
 
   function handleMenuClick() {
@@ -41,7 +54,7 @@ function App({ setMenuOpen }) {
   }
   return (
     <div>
-      <Header onMenuOpen={() => handleMenuClick()} />
+      <Header onMenuOpen={() => handleMenuClick()} search={search} onSearchChange={(value) => setSearch(value)} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/my-cart" element={<MyCartList orders={orders} onDelete={deleteOrder}/> }/>

@@ -30,3 +30,8 @@
 .search-bar__input {
   border: none;
 }
+
+.search-bar__input:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}

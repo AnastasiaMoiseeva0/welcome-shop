@@ -1,44 +1,16 @@
-import { useState, useEffect, useRef } from "react";
-import { useForm } from "../../hooks/useForm";
 import "./SearchBar.css";
 
-function SearchBar({ onSearch }) {
-  const [search, setSearch] = useState();
-  const { isInvalid, handleChange, validate } = useForm({});
-  const input = useRef(null);
-  
-  function handleSearch(event) {
-    event.preventDefault();
-
-    validate([input.current]);
-
-    if (!isInvalid()) {
-      onSearch(search);
-    }
-  }
-
-  useEffect(() => {
-    if (search) {
-      onSearch(search);
-    }
-  }, []);
-
-  function handleSearchChange(e) {
-    setSearch(e.target.value);
-    handleChange(e);
-  }
-
+function SearchBar({ search, onSearchChange }){
   return (
-    <form className="search-bar" onSubmit={(e) => handleSearch(e)}>
+    <form className="search-bar">
       <input
         className="search-bar__input"
-        ref={input}
-        onChange={(e) => handleSearchChange(e)}
-        placeholder= "Search"
         value={search}
+        placeholder= "Search"
         type="text"
         name="searchInput"
         required
+        onChange={(e) => onSearchChange(e.target.value)}
       ></input>
   </form>
   );

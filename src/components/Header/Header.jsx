@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import "./Header.css";
 import Button from "../Button/Button";
 
-function Header({ onMenuOpen }) {
+function Header({ onMenuOpen, onSearchChange, search }) {
   return (
     <div>
       <header className="header">
@@ -17,7 +17,7 @@ function Header({ onMenuOpen }) {
         >
           <FontAwesomeIcon className="header__icon" icon={"bars"} />
         </Button>
-        <SearchBar />
+        <SearchBar search={search} onSearchChange={onSearchChange} />
         <div className="header__navigation">
           <Button className="header__products-button">
             <Link to="/products" className="header__products">all products</Link>
