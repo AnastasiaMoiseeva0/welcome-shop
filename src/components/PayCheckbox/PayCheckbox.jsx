@@ -8,12 +8,12 @@ import visa from "../../images/Visa.svg";
 import discover from "../../images/Discover.svg";
 import Button from "../Button/Button";
 
-function PayCheckbox({value, onChange}) {
+function PayCheckbox() {
   return (
     <section className="checkbox">
       <label className="checkbox__toggle-blue">
         <div className="checkbox__toggler">
-          <input className="checkbox__button" type="checkbox" name="checkbox" checked={value} onChange={(e) => onChange(e.target.checked)} />
+          <input className="checkbox__button" type="radio" name="checkbox" />
           <div className="checkbox__toggle-active"></div>
           <p className="checkbox__filter">By Payment Systems</p>
         </div>
@@ -25,7 +25,7 @@ function PayCheckbox({value, onChange}) {
       </label>
       <label className="checkbox__toggle-white">
         <div className="checkbox__toggler">
-          <input className="checkbox__button" type="checkbox" name="checkbox" />
+          <input className="checkbox__button" type="radio" name="checkbox" />
           <div className="checkbox__toggle-active"></div>
           <p className="checkbox__filter">Pay by Credit Card</p>
         </div>

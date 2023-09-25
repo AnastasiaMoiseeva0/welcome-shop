@@ -4,7 +4,7 @@ import "./Main.css";
 import { useState } from "react";
 import Menu from '../Menu/Menu';
 
-function Main() {
+function Main({suppliesCards, onAddProduct}) {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   function closeMenu() {
@@ -15,7 +15,7 @@ function Main() {
     <div>
       <main>
         <Lead />
-        <Supplies />
+        <Supplies suppliesCards={suppliesCards} onAddProduct={onAddProduct}/>
       </main>
       <Menu   
         isOpen={isMenuOpen}

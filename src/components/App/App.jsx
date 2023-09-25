@@ -56,7 +56,7 @@ function App({ setMenuOpen }) {
     <div>
       <Header onMenuOpen={() => handleMenuClick()} search={search} onSearchChange={(value) => setSearch(value)} />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main suppliesCards={currentItems} onAddProduct={(card) => addToOrder(card)} />} />
         <Route path="/my-cart" element={<MyCartList orders={orders} onDelete={deleteOrder}/> }/>
         <Route
           path="/products"
