@@ -9,7 +9,9 @@ function Header({ onMenuOpen, onSearchChange, search }) {
   return (
     <div>
       <header className="header">
-        <img className="header__logo" alt="Логотип сайта" src={logo} />
+        <Link to="/">
+          <img className="header__logo" alt="Логотип сайта" src={logo} />
+        </Link>
         <Button
           className="header__button"
           transparentButton="transparent"

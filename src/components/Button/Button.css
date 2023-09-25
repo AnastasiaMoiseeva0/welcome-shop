@@ -1,6 +1,7 @@
 .button:hover {
   cursor: pointer;
   opacity: 0.8;
+  transform: scale(1.1);
 }
 
 .button_type_transparent {

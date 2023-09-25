@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
+  padding: 16px 16px 25px 16px;
 }
 
 .card:hover {
@@ -21,10 +21,6 @@
   padding-bottom: 14px;
 }
 
-.card__rating-icon {
-  padding-right: 6px;
-}
-
 .card__rating {
   width: 20px;
   height: 20px;
@@ -32,6 +28,28 @@
   display: flex;
   flex-direction: row;
   padding-left: 2px;
+}
+
+.card__rating-input {
+  display: none;
+}
+
+.card__rating-icon {
+  padding-right: 6px;
+  cursor: pointer;
+}
+
+.card__add-button {
+  border-radius: 2px;
+  border: solid 1px #008000;
+  margin-left: 50px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: #008000;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+  height: 30px;
+  width: 60px;
 }
 
 .card__price {
