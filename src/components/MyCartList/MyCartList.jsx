@@ -1,12 +1,13 @@
+import { useState } from "react";
 import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
 
-function MyCartList({ orders, onDelete }) {
+function MyCartList({ orders, onDelete, onChangeCount }) {
 
   const showOrders = (orders) => {
     let totalPrice = 0;
-    orders.forEach(card => totalPrice += Number.parseFloat(card.price))
+    orders.forEach(card => totalPrice += Number.parseFloat(card.price * card.count))
     return (
       <>
         {orders.map((card) => (
@@ -14,6 +15,7 @@ function MyCartList({ orders, onDelete }) {
             key={card.id}
             card={card}
             onDelete={onDelete}
+            onChangeCount={onChangeCount}
           />
         ))}
         <p className="my-cart__price">

@@ -1,10 +1,11 @@
+
 import "./MyCart.css";
 import Button from "../Button/Button";
 import addButton from "../../images/AddButton.svg";
 import substractButton from "../../images/SubstractButton.svg";
+import { useState } from 'react';
 
-function MyCart({ card, onDelete }) {
-
+function MyCart({ card, onDelete, onChangeCount }) {
   return (
     <article className="cart">
       <div className="cart__description-container">
@@ -18,15 +19,15 @@ function MyCart({ card, onDelete }) {
       </div>
       <div className="cart__price-container">
         <div className="cart__counter">
-          <Button transparentButton="transparent" className="cart__button">
+          <Button transparentButton="transparent" className="cart__button" onClick={() => onChangeCount(card, card.count + 1)}>
             <img
               className="cart__round-button"
               alt="добавить товар"
               src={addButton}
             />
           </Button>
-          <p className="cart__counter-title">{''}</p>
-          <Button transparentButton="transparent" className="cart__button">
+          <p className="cart__counter-title">{card.count}</p>
+          <Button transparentButton="transparent" className="cart__button" onClick={() => onChangeCount(card, card.count - 1)}>
             <img
               className="cart__round-button"
               alt="убрать товар"
@@ -37,7 +38,7 @@ function MyCart({ card, onDelete }) {
         <Button transparentButton="transparent" className="cart__remove-button" onClick={() => onDelete(card.id)}>
           remove
         </Button>
-        <p className="cart__price">${card.price}</p>
+        <p className="cart__price">${new Intl.NumberFormat().format(card.price * card.count)}</p>
       </div>
     </article>
   );

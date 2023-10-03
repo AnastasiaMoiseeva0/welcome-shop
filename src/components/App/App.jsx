@@ -13,7 +13,6 @@ function App({ setMenuOpen }) {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('all');
 
-
   useEffect(() => {
     let filtred = suppliesCards;
 
@@ -29,6 +28,18 @@ function App({ setMenuOpen }) {
 
   }, [category, search]);
 
+  function changeCount(card, count) {
+    const existingCardIndex = orders.findIndex(c => card.id === c.id);
+
+    if(existingCardIndex === -1 || count === 0) {
+      return;
+    }
+
+    const newCard = {...orders[existingCardIndex], count };
+    
+    setOrders([...orders.slice(0, existingCardIndex), newCard, ...orders.slice(existingCardIndex + 1, orders.length)]);
+  }
+
   function addToOrder(card) {
     let isInArray = false;
     orders.forEach((el) => {
@@ -37,7 +48,7 @@ function App({ setMenuOpen }) {
       }
     });
     if (!isInArray) {
-      setOrders([...orders, card]);
+      setOrders([...orders, { ...card, count: 1 }]);
     }
   }
 
@@ -57,7 +68,7 @@ function App({ setMenuOpen }) {
       <Header onMenuOpen={() => handleMenuClick()} search={search} onSearchChange={(value) => setSearch(value)} />
       <Routes>
         <Route path="/" element={<Main suppliesCards={currentItems} onAddProduct={(card) => addToOrder(card)} />} />
-        <Route path="/my-cart" element={<MyCartList orders={orders} onDelete={deleteOrder}/> }/>
+        <Route path="/my-cart" element={<MyCartList orders={orders} onDelete={deleteOrder} onChangeCount={changeCount}/> }/>
         <Route
           path="/products"
           element={<ProductsPage suppliesCards={currentItems} onAddProduct={(card) => addToOrder(card)} chooseCategory={chooseCategory} />}
