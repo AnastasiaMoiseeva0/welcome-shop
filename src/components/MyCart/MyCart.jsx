@@ -1,9 +1,7 @@
-
 import "./MyCart.css";
 import Button from "../Button/Button";
 import addButton from "../../images/AddButton.svg";
 import substractButton from "../../images/SubstractButton.svg";
-import { useState } from 'react';
 
 function MyCart({ card, onDelete, onChangeCount }) {
   return (

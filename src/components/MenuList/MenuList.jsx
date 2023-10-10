@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MenuList.css";
-import categories from '../../utils/categories.json';
 
-function MenuList({chooseCategory}) {
+function MenuList({chooseCategory, categories }) {
   return (
     <ul className="menu-list">
       { categories.map(el => (

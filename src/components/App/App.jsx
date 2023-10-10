@@ -4,17 +4,28 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
 import ProductsPage from "../ProductsPage/ProductsPage";
-import suppliesCards from "../../utils/suppliesCards.json";
-
+import {getProducts, getCategories} from "../../utils/api.js";
 
 function App({ setMenuOpen }) {
   const [orders, setOrders] = useState([]);
-  const [currentItems, setCurrentItems] = useState([...suppliesCards]);
+  const [allItems, setAllItems] = useState([]);
+  const [currentItems, setCurrentItems] = useState([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('all');
+  const [categories, setCategories] = useState([]);
+
+
+  Promise.all([getProducts(), getCategories()])
+.then(([products, categories]) => {
+  setAllItems(products);
+  setCategories(categories);
+})
+.catch(error => {
+  console.log(error)
+});
 
   useEffect(() => {
-    let filtred = suppliesCards;
+    let filtred = allItems;
 
     if(category !== 'all') {
       filtred = filtred.filter(card => card.category === category);
@@ -26,7 +37,7 @@ function App({ setMenuOpen }) {
 
     setCurrentItems(filtred);
 
-  }, [category, search]);
+  }, [category, search, allItems]);
 
   function changeCount(card, count) {
     const existingCardIndex = orders.findIndex(c => card.id === c.id);
@@ -71,7 +82,7 @@ function App({ setMenuOpen }) {
         <Route path="/my-cart" element={<MyCartList orders={orders} onDelete={deleteOrder} onChangeCount={changeCount}/> }/>
         <Route
           path="/products"
-          element={<ProductsPage suppliesCards={currentItems} onAddProduct={(card) => addToOrder(card)} chooseCategory={chooseCategory} />}
+          element={<ProductsPage categories={categories} suppliesCards={currentItems} onAddProduct={(card) => addToOrder(card)} chooseCategory={chooseCategory} />}
         />
       </Routes>
     </div>

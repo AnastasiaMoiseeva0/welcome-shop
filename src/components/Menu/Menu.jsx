@@ -4,7 +4,7 @@ import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
 
-function Menu({ isOpen, onClose }) {
+function Menu({ isOpen, onClose, categories }) {
   return (
     <div className={`menu ${isOpen ? "menu_opened" : ""}`} onClick={onClose}>
       <div className="menu__header">
@@ -31,7 +31,7 @@ function Menu({ isOpen, onClose }) {
             <p className="header__cart">my cart</p>
           </Button>
         </div>
-        <MenuList />
+        <MenuList categories={categories}/>
       </nav>
     </div>
   );

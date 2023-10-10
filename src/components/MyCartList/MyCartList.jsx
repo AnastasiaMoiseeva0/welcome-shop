@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
