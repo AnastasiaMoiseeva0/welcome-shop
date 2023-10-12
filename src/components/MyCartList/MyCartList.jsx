@@ -2,6 +2,7 @@ import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
 import Menu from "../Menu/Menu";
+import { UseSelector } from "react-redux/es/hooks/useSelector";
 
 function MyCartList({ orders, onDelete, onChangeCount, onMenuClose, isOpen, categories, chooseCategory }) {
 
