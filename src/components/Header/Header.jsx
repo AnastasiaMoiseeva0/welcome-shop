@@ -6,6 +6,7 @@ import "./Header.css";
 import Button from "../Button/Button";
 
 function Header({ onMenuOpen, onSearchChange, search }) {
+
   return (
     <div>
       <header className="header">

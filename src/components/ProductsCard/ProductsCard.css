@@ -30,15 +30,6 @@
   padding-left: 2px;
 }
 
-.card__rating-input {
-  display: none;
-}
-
-.card__rating-icon {
-  padding-right: 6px;
-  cursor: pointer;
-}
-
 .card__add-button {
   border-radius: 2px;
   border: solid 1px #008000;

@@ -4,15 +4,15 @@ import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
 
-function Menu({ isOpen, onClose, categories }) {
+function Menu({ isOpen, onMenuClose, categories }) {
   return (
-    <div className={`menu ${isOpen ? "menu_opened" : ""}`} onClick={onClose}>
+    <div className={`menu ${isOpen ? "menu_opened" : ""}`} onClick={onMenuClose}>
       <div className="menu__header">
         <img alt="Логотип сайта" src={logo} />
         <Button
           className="menu__header-icon"
           transparentButton="transparent"
-          onClick={onClose}
+          onClick={onMenuClose}
         >
           <FontAwesomeIcon
             className="menu-list__icon"
@@ -22,7 +22,7 @@ function Menu({ isOpen, onClose, categories }) {
       </div>
       <nav>
         <div className="menu__button-list">
-          <Button className="header__products-button">all products</Button>
+          <Button className="header__products header__products-button">all products</Button>
           <Button
             className="header__cart-button"
             transparentButton="transparent"

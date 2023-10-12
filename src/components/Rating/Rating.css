@@ -1,0 +1,8 @@
+.rating__input {
+  display: none;
+}
+
+.rating__icon {
+  padding-right: 6px;
+  cursor: pointer;
+}
