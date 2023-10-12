@@ -1,8 +1,9 @@
 import MenuList from "../MenuList/MenuList";
 import ProductsCard from "../ProductsCard/ProductsCard";
 import "./ProductsPage.css";
+import Menu from "../Menu/Menu";
 
-function ProductsPage({suppliesCards, onAddProduct, chooseCategory, categories}) {
+function ProductsPage({suppliesCards, onAddProduct, chooseCategory, categories, onMenuClose, isOpen }) {
   return (
     <>
       <section className="products">
@@ -18,6 +19,12 @@ function ProductsPage({suppliesCards, onAddProduct, chooseCategory, categories})
             />
           ))}
         </div>
+        <Menu
+        onMenuClose={onMenuClose}
+        isOpen={isOpen}
+        categories={categories}
+        chooseCategory={chooseCategory}
+      />
       </section>
     </>
   );

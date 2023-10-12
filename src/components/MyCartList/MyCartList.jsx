@@ -1,8 +1,9 @@
 import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
+import Menu from "../Menu/Menu";
 
-function MyCartList({ orders, onDelete, onChangeCount }) {
+function MyCartList({ orders, onDelete, onChangeCount, onMenuClose, isOpen, categories, chooseCategory }) {
 
   const showOrders = (orders) => {
     let totalPrice = 0;
@@ -42,6 +43,12 @@ function MyCartList({ orders, onDelete, onChangeCount }) {
           </div>
           <PayCheckbox />
         </div>
+        <Menu
+        onMenuClose={onMenuClose}
+        isOpen={isOpen}
+        categories={categories}
+        chooseCategory={chooseCategory}
+      />
       </section>
     </>
   );

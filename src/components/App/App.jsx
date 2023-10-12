@@ -108,9 +108,13 @@ function App() {
           path="/my-cart"
           element={
             <MyCartList
+              categories={categories}
               orders={orders}
               onDelete={deleteOrder}
               onChangeCount={changeCount}
+              isOpen={isMenuOpen}
+              onMenuClose={() => closeMenu()}
+              chooseCategory={chooseCategory}
             />
           }
         />
@@ -121,6 +125,8 @@ function App() {
               categories={categories}
               suppliesCards={currentItems}
               onAddProduct={(card) => addToOrder(card)}
+              isOpen={isMenuOpen}
+              onMenuClose={() => closeMenu()}
               chooseCategory={chooseCategory}
             />
           }

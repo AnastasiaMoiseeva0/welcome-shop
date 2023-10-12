@@ -1,10 +1,7 @@
 import "./Rating.css";
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Rating({ currentRating }) {
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
+function Rating({ currentRating, rating, setRating, setHover, hover }) {
 
   return (
     <label className="rating">
