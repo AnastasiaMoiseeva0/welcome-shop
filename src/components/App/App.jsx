@@ -5,6 +5,8 @@ import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
 import ProductsPage from "../ProductsPage/ProductsPage";
 import { getProducts, getCategories } from "../../utils/api.js";
+import {Provider} from 'react-redux';
+import store from "../../redux/store";
 
 function App() {
   const [orders, setOrders] = useState([]);
@@ -85,7 +87,8 @@ function App() {
   }
 
   return (
-    <div>
+    <Provider store={store}>
+    <>
       <Header
         search={search}
         onSearchChange={(value) => setSearch(value)}
@@ -132,7 +135,8 @@ function App() {
           }
         />
       </Routes>
-    </div>
+    </>
+    </Provider>
   );
 }
 
