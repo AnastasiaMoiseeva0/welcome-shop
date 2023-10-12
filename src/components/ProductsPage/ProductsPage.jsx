@@ -2,8 +2,17 @@ import MenuList from "../MenuList/MenuList";
 import ProductsCard from "../ProductsCard/ProductsCard";
 import "./ProductsPage.css";
 import Menu from "../Menu/Menu";
+import { useDispatch } from "react-redux";
+import { useCallback } from 'react';
+import { addOrderActionCreator } from "../../redux/actions";
 
-function ProductsPage({suppliesCards, onAddProduct, chooseCategory, categories, onMenuClose, isOpen }) {
+function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, isOpen }) {
+  const dispatch = useDispatch();
+
+  const addToOrder = useCallback((card) => {
+    dispatch(addOrderActionCreator(card));
+  }, []);
+
   return (
     <>
       <section className="products">
@@ -15,7 +24,7 @@ function ProductsPage({suppliesCards, onAddProduct, chooseCategory, categories, 
             <ProductsCard
               key={card.id}
               card={card}
-              onAddProduct={onAddProduct}
+              onAddProduct={addToOrder}
             />
           ))}
         </div>

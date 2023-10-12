@@ -2,21 +2,25 @@ import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
 import Menu from "../Menu/Menu";
-import { UseSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
-function MyCartList({ orders, onDelete, onChangeCount, onMenuClose, isOpen, categories, chooseCategory }) {
+function MyCartList({ onDelete, onMenuClose, isOpen, categories, chooseCategory }) {
+  const totalPrice = useSelector(state => {
+    return state.orders.reduce((acc, product) => {
+      return acc += Number.parseFloat(product.price * product.quantity)
+    }, 0)
+  });
+
+  const orders = useSelector(state => state.orders);
 
   const showOrders = (orders) => {
-    let totalPrice = 0;
-    orders.forEach(card => totalPrice += Number.parseFloat(card.price * card.count))
     return (
       <>
         {orders.map((card) => (
           <MyCart
             key={card.id}
-            card={card}
+            id={card.id}
             onDelete={onDelete}
-            onChangeCount={onChangeCount}
           />
         ))}
         <p className="my-cart__price">

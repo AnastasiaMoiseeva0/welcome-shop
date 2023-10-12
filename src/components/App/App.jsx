@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
 import ProductsPage from "../ProductsPage/ProductsPage";
 import { getProducts, getCategories } from "../../utils/api.js";
 import {Provider} from 'react-redux';
-import store from "../../redux/store";
+import {store} from "../../redux/store";
 
 function App() {
   const [orders, setOrders] = useState([]);
@@ -42,7 +42,7 @@ function App() {
     setCurrentItems(filtred);
   }, [category, search, allItems]);
 
-  function changeCount(card, count) {
+  /*function changeCount(card, count) {
     const existingCardIndex = orders.findIndex((c) => card.id === c.id);
 
     if (existingCardIndex === -1 || count === 0) {
@@ -56,19 +56,7 @@ function App() {
       newCard,
       ...orders.slice(existingCardIndex + 1, orders.length),
     ]);
-  }
-
-  function addToOrder(card) {
-    let isInArray = false;
-    orders.forEach((el) => {
-      if (el.id === card.id) {
-        isInArray = true;
-      }
-    });
-    if (!isInArray) {
-      setOrders([...orders, { ...card, count: 1 }]);
-    }
-  }
+  }*/
 
   function deleteOrder(id) {
     setOrders(orders.filter((el) => el.id !== id));
@@ -101,7 +89,6 @@ function App() {
             <Main
               categories={categories}
               suppliesCards={currentItems}
-              onAddProduct={(card) => addToOrder(card)}
               isOpen={isMenuOpen}
               onMenuClose={() => closeMenu()}
             />
@@ -114,7 +101,6 @@ function App() {
               categories={categories}
               orders={orders}
               onDelete={deleteOrder}
-              onChangeCount={changeCount}
               isOpen={isMenuOpen}
               onMenuClose={() => closeMenu()}
               chooseCategory={chooseCategory}
@@ -127,7 +113,6 @@ function App() {
             <ProductsPage
               categories={categories}
               suppliesCards={currentItems}
-              onAddProduct={(card) => addToOrder(card)}
               isOpen={isMenuOpen}
               onMenuClose={() => closeMenu()}
               chooseCategory={chooseCategory}
