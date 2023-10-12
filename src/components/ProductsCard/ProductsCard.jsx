@@ -1,8 +1,12 @@
 import Rating from "../Rating/Rating"
 import "./ProductsCard.css";
 import Button from "../Button/Button";
+import { useState } from "react";
 
 function ProductsCard({ card, onAddProduct }) {
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
+
   return (
     <article className="card">
       <div
@@ -15,9 +19,9 @@ function ProductsCard({ card, onAddProduct }) {
       <p className="card__price">${card.price}</p>
       <p className="card__caption">{card.caption}</p>
       <div className="card__rating">
-        {[...Array(5)].map((index) => {
-          <Rating value={index + 1} key={index} />
-        })}
+        {[...Array(5)].map((_, index) => (
+          <Rating rating={rating} hover={hover} setHover={setHover} setRating={setRating} currentRating={index + 1} key={index.toString()} />
+        ))}
         <Button
           transparentButton="transparent"
           className="card__add-button"

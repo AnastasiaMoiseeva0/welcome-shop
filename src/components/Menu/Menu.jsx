@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Link } from "react-router-dom";
 import "./Menu.css";
 import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
 
-function Menu({ isOpen, onMenuClose, categories }) {
+function Menu({ isOpen, onMenuClose, categories, chooseCategory }) {
   return (
     <div className={`menu ${isOpen ? "menu_opened" : ""}`} onClick={onMenuClose}>
       <div className="menu__header">
@@ -22,16 +23,18 @@ function Menu({ isOpen, onMenuClose, categories }) {
       </div>
       <nav>
         <div className="menu__button-list">
-          <Button className="header__products header__products-button">all products</Button>
+        <Button className="header__products-button">
+            <Link to="/products" className="header__products header__products-button">all products</Link>
+            </Button>
           <Button
             className="header__cart-button"
             transparentButton="transparent"
           >
             <FontAwesomeIcon className="header__icon" icon={"cart-shopping"} />
-            <p className="header__cart">my cart</p>
+            <Link to="/my-cart" className="header__cart">my cart</Link>
           </Button>
         </div>
-        <MenuList categories={categories}/>
+        <MenuList chooseCategory={chooseCategory} categories={categories} />
       </nav>
     </div>
   );
