@@ -5,13 +5,19 @@ import SearchBar from "../SearchBar/SearchBar";
 import "./Header.css";
 import Button from "../Button/Button";
 
-function Header({ onMenuOpen, onSearchChange, search }) {
+interface HeaderProps {
+  onMenuOpen: () => void,
+  onSearchChange: (value: string) => void,
+  search: string
+}
+
+function Header({ onMenuOpen, onSearchChange, search }: HeaderProps) {
 
   return (
     <div>
       <header className="header">
         <Link to="/">
-          <img className="header__logo" alt="Логотип сайта" src={logo} />
+          <img className="header__logo" alt="Логотип сайта" src={logo as unknown as string} />
         </Link>
         <Button
           className="header__button"

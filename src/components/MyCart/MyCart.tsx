@@ -4,18 +4,27 @@ import addButton from "../../images/AddButton.svg";
 import substractButton from "../../images/SubstractButton.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { useCallback } from 'react';
-import { increaseQuantityActionCreator, decreaseQuantityActionCreator } from "../../redux/actions";
+import { increaseQuantityActionCreator, decreaseQuantityActionCreator, deleteOrderActionCreator } from "../../redux/actions";
+import { IOrder } from "../../types/IOrder";
+import { MyStore } from "../../redux/store";
 
-function MyCart({ id, onDelete }) {
+interface MyCardProps {
+  id: number,
+}
+function MyCart({ id }: MyCardProps) {
   const dispatch = useDispatch();
-  const card = useSelector(state => state.orders.find(order => order.id === id ));
+  const card = useSelector((state: MyStore) => state.orders.find((order: IOrder) => order.id === id )!);
 
-  const increaseQuantity = useCallback((id) => {
+  const increaseQuantity = useCallback((id: IOrder['id']) => {
     dispatch(increaseQuantityActionCreator(id));
   }, []);
 
-  const decreaseQuantity = useCallback((id) => {
+  const decreaseQuantity = useCallback((id: IOrder['id']) => {
     dispatch(decreaseQuantityActionCreator(id));
+  }, []);
+
+  const deleteCard = useCallback((id: IOrder['id']) => {
+    dispatch(deleteOrderActionCreator(id));
   }, []);
 
   return (
@@ -35,7 +44,7 @@ function MyCart({ id, onDelete }) {
             <img
               className="cart__round-button"
               alt="добавить товар"
-              src={addButton}
+              src={addButton as unknown as string}
             />
           </Button>
           <p className="cart__counter-title">{card.quantity}</p>
@@ -43,11 +52,11 @@ function MyCart({ id, onDelete }) {
             <img
               className="cart__round-button"
               alt="убрать товар"
-              src={substractButton}
+              src={substractButton as unknown as string}
             />
           </Button>
         </div>
-        <Button transparentButton="transparent" className="cart__remove-button" onClick={() => onDelete(card.id)}>
+        <Button transparentButton="transparent" className="cart__remove-button" onClick={() => deleteCard(card.id)}>
           remove
         </Button>
         <p className="cart__price">${new Intl.NumberFormat().format(card.price * card.quantity)}</p>

@@ -1,7 +1,16 @@
+import { SetStateAction } from "react";
 import "./Rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Rating({ currentRating, rating, setRating, setHover, hover }) {
+interface RatingProps {
+  currentRating: number,
+  rating: number,
+  setRating: (value: SetStateAction<number>) => void,
+  setHover: (value: SetStateAction<number>) => void,
+  hover: number,
+}
+
+function Rating({ currentRating, rating, setRating, setHover, hover } : RatingProps ) {
 
   return (
     <label className="rating">
@@ -17,7 +26,7 @@ function Rating({ currentRating, rating, setRating, setHover, hover }) {
         icon={"star"}
         color={currentRating <= (hover || rating) ? "#ffff00" : ""}
         onMouseEnter={() => setHover(currentRating)}
-        onMouseLeave={() => setHover(null)}
+        onMouseLeave={() => setHover(0)}
       />
     </label>
   );
