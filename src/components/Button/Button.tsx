@@ -1,6 +1,15 @@
 import "./Button.css";
 
-function Button({ children, className, transparentButton, onClick, type, disabled }) {
+type ButtonProps = Partial<{
+  children: string | JSX.Element | JSX.Element[],
+  className: string,
+  transparentButton: string,
+  onClick: () => void,
+  type: "button" | "submit" | "reset" | undefined,
+  disabled: boolean,
+}>;
+
+function Button({ children, className, transparentButton, onClick, type, disabled }: ButtonProps ) {
   return (
     <button
       onClick={onClick}

@@ -1,12 +1,16 @@
-import { INCREASE_QUANTITY_ACTION, DECREASE_QUANTITY_ACTION, ADD_ORDER } from "./actions";
+import { IOrder } from "../types/IOrder";
+import { INCREASE_QUANTITY_ACTION, DECREASE_QUANTITY_ACTION, ADD_ORDER, DELETE_ORDER, ProjectAction } from "./actions";
 
-export default function ordersReducer(state = [], action) {
+export default function ordersReducer(state: IOrder[] = [], action: ProjectAction) {
   switch (action.type) {
     case ADD_ORDER: {
       return [...state, {
         ...action.payload,
         quantity: 1,
       }];
+    }
+    case DELETE_ORDER: {
+      return state.filter(({ id }) => id !== action.payload.id);
     }
     case INCREASE_QUANTITY_ACTION:
       return state.map((card) => {

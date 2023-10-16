@@ -1,6 +1,11 @@
 import "./SearchBar.css";
 
-function SearchBar({ search, onSearchChange }){
+interface SearchBarProps {
+  search: string,
+  onSearchChange: (value: string) => void
+}
+
+function SearchBar({ search, onSearchChange } : SearchBarProps){
   return (
     <form className="search-bar">
       <input
@@ -10,7 +15,7 @@ function SearchBar({ search, onSearchChange }){
         type="text"
         name="searchInput"
         required
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onSearchChange(e.currentTarget.value)}
       ></input>
   </form>
   );

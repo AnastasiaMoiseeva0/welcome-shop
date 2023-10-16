@@ -5,11 +5,18 @@ import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
 
-function Menu({ isOpen, onMenuClose, categories, chooseCategory }) {
+type MenuProps = Partial< {
+  isOpen: boolean,
+  onMenuClose: () => void,
+  categories: string[],
+  chooseCategory: (category: string) => void,
+}>
+
+function Menu({ isOpen, onMenuClose, categories, chooseCategory }: MenuProps) {
   return (
     <div className={`menu ${isOpen ? "menu_opened" : ""}`} onClick={onMenuClose}>
       <div className="menu__header">
-        <img alt="Логотип сайта" src={logo} />
+        <img alt="Логотип сайта" src={logo as unknown as string} />
         <Button
           className="menu__header-icon"
           transparentButton="transparent"

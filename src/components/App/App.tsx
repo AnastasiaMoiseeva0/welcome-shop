@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
@@ -7,15 +7,19 @@ import ProductsPage from "../ProductsPage/ProductsPage";
 import { getProducts, getCategories } from "../../utils/api.js";
 import {Provider} from 'react-redux';
 import {store} from "../../redux/store";
+import { ICard } from "../../types/ICard";
 
 function App() {
-  const [orders, setOrders] = useState([]);
   const [allItems, setAllItems] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
+  const [currentItems, setCurrentItems] = useState<string[]>([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  interface ICardProps {
+    card: ICard;
+  }
 
   Promise.all([getProducts(), getCategories()])
     .then(([products, categories]) => {
@@ -30,11 +34,11 @@ function App() {
     let filtred = allItems;
 
     if (category !== "all") {
-      filtred = filtred.filter((card) => card.category === category);
+      filtred = filtred.filter(({card} : ICardProps) => card.category === category);
     }
 
     if (search) {
-      filtred = filtred.filter((card) =>
+      filtred = filtred.filter(({card} : ICardProps) =>
         card.description.toLowerCase().includes(search.toLowerCase())
       );
     }
@@ -42,27 +46,7 @@ function App() {
     setCurrentItems(filtred);
   }, [category, search, allItems]);
 
-  /*function changeCount(card, count) {
-    const existingCardIndex = orders.findIndex((c) => card.id === c.id);
-
-    if (existingCardIndex === -1 || count === 0) {
-      return;
-    }
-
-    const newCard = { ...orders[existingCardIndex], count };
-
-    setOrders([
-      ...orders.slice(0, existingCardIndex),
-      newCard,
-      ...orders.slice(existingCardIndex + 1, orders.length),
-    ]);
-  }*/
-
-  function deleteOrder(id) {
-    setOrders(orders.filter((el) => el.id !== id));
-  }
-
-  function chooseCategory(category) {
+  function chooseCategory(category : ICard['category']) {
     setCategory(category);
   }
 
@@ -99,8 +83,6 @@ function App() {
           element={
             <MyCartList
               categories={categories}
-              orders={orders}
-              onDelete={deleteOrder}
               isOpen={isMenuOpen}
               onMenuClose={() => closeMenu()}
               chooseCategory={chooseCategory}

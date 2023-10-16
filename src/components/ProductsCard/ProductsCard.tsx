@@ -4,8 +4,8 @@ import Button from "../Button/Button";
 import { useState } from "react";
 
 function ProductsCard({ card, onAddProduct }) {
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
+  const [rating, setRating] = useState<number>(0);
+  const [hover, setHover] = useState<number>(0);
 
   return (
     <article className="card">
