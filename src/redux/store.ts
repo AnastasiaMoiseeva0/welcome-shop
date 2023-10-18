@@ -11,3 +11,5 @@ export const store = createStore(
         orders: ordersReducer
     })
 )
+
+export type RootState = ReturnType<typeof store.getState>

@@ -2,11 +2,11 @@ import Lead from "../Lead/Lead";
 import Supplies from "../Supplies/Supplies";
 import "./Main.css";
 import Menu from '../Menu/Menu';
-import { useDispatch } from "react-redux";
 import { useCallback } from 'react';
 import { addOrderActionCreator } from "../../redux/actions";
 import { ICategory } from "../../types/ICategory";
 import { ICard } from "../../types/ICard";
+import { useAppDispatch } from "../../redux/hooks";
 
 interface MainProps {
   categories: ICategory[];
@@ -17,7 +17,7 @@ interface MainProps {
 }
 
 function Main({categories, suppliesCards, chooseCategory, onMenuClose, isOpen}: MainProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const addToOrder = useCallback((card: ICard) => {
     dispatch(addOrderActionCreator(card));

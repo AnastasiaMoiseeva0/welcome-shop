@@ -2,11 +2,11 @@ import MenuList from "../MenuList/MenuList";
 import ProductsCard from "../ProductsCard/ProductsCard";
 import "./ProductsPage.css";
 import Menu from "../Menu/Menu";
-import { useDispatch } from "react-redux";
 import { useCallback } from 'react';
 import { addOrderActionCreator } from "../../redux/actions";
 import { ICard } from "../../types/ICard";
 import { ICategory } from "../../types/ICategory";
+import { useAppDispatch } from "../../redux/hooks";
 
 interface ProductPageProps {
   onMenuClose: () => void;
@@ -17,7 +17,7 @@ interface ProductPageProps {
 };
 
 function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, isOpen } : ProductPageProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const addToOrder = useCallback((card : ICard) => {
     dispatch(addOrderActionCreator(card));

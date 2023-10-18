@@ -2,10 +2,10 @@ import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
 import Menu from "../Menu/Menu";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 import { MyStore } from "../../redux/store";
 import { IOrder } from "../../types/IOrder";
 import { ICategory } from "../../types/ICategory";
+import { useAppSelector } from "../../redux/hooks";
 
 type MyCartListProps = {
   onMenuClose: () => void;
@@ -21,13 +21,13 @@ function MyCartList({
   chooseCategory,
 }: MyCartListProps) {
 
-  const totalPrice = useSelector((state: MyStore) => {
+  const totalPrice = useAppSelector((state: MyStore) => {
     return state.orders.reduce((acc, product) => {
       return (acc += product.quantity * product.price);
     }, 0);
   });
 
-  const orders = useSelector((state: MyStore) => state.orders);
+  const orders = useAppSelector((state: MyStore) => state.orders);
 
   const showOrders = (orders: IOrder[]) => {
     return (
