@@ -5,21 +5,23 @@ import Menu from '../Menu/Menu';
 import { useDispatch } from "react-redux";
 import { useCallback } from 'react';
 import { addOrderActionCreator } from "../../redux/actions";
-import { IOrder } from "../../types/IOrder";
+import { ICategory } from "../../types/ICategory";
+import { ICard } from "../../types/ICard";
 
 interface MainProps {
-  categories: string[];
+  categories: ICategory[];
   onMenuClose: () => void;
   isOpen: boolean;
-  suppliesCards: string[];
+  suppliesCards: ICard[];
+  chooseCategory: (category: string) => void;
 }
 
-function Main({categories, suppliesCards, onMenuClose, isOpen}: MainProps) {
+function Main({categories, suppliesCards, chooseCategory, onMenuClose, isOpen}: MainProps) {
   const dispatch = useDispatch();
 
-  const addToOrder = useCallback((card: IOrder) => {
+  const addToOrder = useCallback((card: ICard) => {
     dispatch(addOrderActionCreator(card));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -31,6 +33,7 @@ function Main({categories, suppliesCards, onMenuClose, isOpen}: MainProps) {
         onMenuClose={onMenuClose}
         isOpen={isOpen}
         categories={categories}
+        chooseCategory={chooseCategory}
       />
     </div>
   );

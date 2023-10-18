@@ -18,9 +18,9 @@ function PayCheckbox() {
           <p className="checkbox__filter">By Payment Systems</p>
         </div>
         <div className="checkbox__icons">
-          <img className="checkbox__icon" alt="Логотип ApplePay" src={applePay} />
-          <img className="checkbox__icon" alt="Логотип GooglePay" src={googlePay} />
-          <img className="checkbox__icon" alt="Логотип PayPal" src={payPal} />
+          <img className="checkbox__icon" alt="Логотип ApplePay" src={applePay as unknown as string} />
+          <img className="checkbox__icon" alt="Логотип GooglePay" src={googlePay as unknown as string} />
+          <img className="checkbox__icon" alt="Логотип PayPal" src={payPal as unknown as string} />
         </div>
       </label>
       <label className="checkbox__toggle-white">
@@ -30,10 +30,10 @@ function PayCheckbox() {
           <p className="checkbox__filter">Pay by Credit Card</p>
         </div>
         <div className="checkbox__icons">
-          <img className="checkbox__icon-card" alt="Логотип MasterCard" src={masterCard} />
-          <img className="checkbox__icon-card" alt="Логотип Maestro" src={maestro} />
-          <img className="checkbox__icon-card" alt="Логотип Visa" src={visa} />
-          <img className="checkbox__icon-card" alt="Логотип Discover" src={discover} />
+          <img className="checkbox__icon-card" alt="Логотип MasterCard" src={masterCard as unknown as string} />
+          <img className="checkbox__icon-card" alt="Логотип Maestro" src={maestro as unknown as string} />
+          <img className="checkbox__icon-card" alt="Логотип Visa" src={visa as unknown as string} />
+          <img className="checkbox__icon-card" alt="Логотип Discover" src={discover as unknown as string} />
         </div>
       </label>
       <Button className="checkbox__pay-button" transparentButton="transparent">pay</Button>

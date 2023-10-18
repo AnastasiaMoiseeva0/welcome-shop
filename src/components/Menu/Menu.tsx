@@ -4,11 +4,12 @@ import "./Menu.css";
 import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
+import { ICategory } from "../../types/ICategory";
 
-type MenuProps = Partial< {
+type MenuProps = Partial<{
   isOpen: boolean,
   onMenuClose: () => void,
-  categories: string[],
+  categories: ICategory[],
   chooseCategory: (category: string) => void,
 }>
 

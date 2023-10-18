@@ -5,13 +5,14 @@ import Menu from "../Menu/Menu";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { MyStore } from "../../redux/store";
 import { IOrder } from "../../types/IOrder";
+import { ICategory } from "../../types/ICategory";
 
-type MyCartListProps = Partial<{
+type MyCartListProps = {
   onMenuClose: () => void;
   isOpen: boolean;
   chooseCategory: (category: string) => void;
-  categories: string[];
-}>;
+  categories: ICategory[];
+};
 
 function MyCartList({
   onMenuClose,

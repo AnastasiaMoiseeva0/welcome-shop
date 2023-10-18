@@ -8,13 +8,14 @@ import { getProducts, getCategories } from "../../utils/api.js";
 import {Provider} from 'react-redux';
 import {store} from "../../redux/store";
 import { ICard } from "../../types/ICard";
+import { ICategory } from "../../types/ICategory";
 
 function App() {
   const [allItems, setAllItems] = useState([]);
-  const [currentItems, setCurrentItems] = useState<string[]>([]);
+  const [currentItems, setCurrentItems] = useState<ICard[]>([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<ICategory[]>([]);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   interface ICardProps {
@@ -75,6 +76,7 @@ function App() {
               suppliesCards={currentItems}
               isOpen={isMenuOpen}
               onMenuClose={() => closeMenu()}
+              chooseCategory={chooseCategory}
             />
           }
         />
