@@ -2,8 +2,15 @@ import Rating from "../Rating/Rating"
 import "./ProductsCard.css";
 import Button from "../Button/Button";
 import { useState } from "react";
+import { IOrder } from "../../types/IOrder";
+import { ICard } from "../../types/ICard";
 
-function ProductsCard({ card, onAddProduct }) {
+interface ProductCardProps {
+  onAddProduct: (card : ICard) => void,
+  card: ICard
+}
+
+function ProductsCard({ card, onAddProduct } : ProductCardProps ) {
   const [rating, setRating] = useState<number>(0);
   const [hover, setHover] = useState<number>(0);
 

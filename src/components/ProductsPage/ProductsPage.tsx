@@ -5,13 +5,23 @@ import Menu from "../Menu/Menu";
 import { useDispatch } from "react-redux";
 import { useCallback } from 'react';
 import { addOrderActionCreator } from "../../redux/actions";
+import { ICard } from "../../types/ICard";
+import { ICategory } from "../../types/ICategory";
 
-function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, isOpen }) {
+interface ProductPageProps {
+  onMenuClose: () => void;
+  isOpen: boolean;
+  chooseCategory: (category: string) => void;
+  categories: ICategory[];
+  suppliesCards: ICard[];
+};
+
+function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, isOpen } : ProductPageProps) {
   const dispatch = useDispatch();
 
-  const addToOrder = useCallback((card) => {
+  const addToOrder = useCallback((card : ICard) => {
     dispatch(addOrderActionCreator(card));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

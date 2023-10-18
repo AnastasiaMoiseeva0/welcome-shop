@@ -1,7 +1,7 @@
 import { IOrder } from "../types/IOrder";
 import { INCREASE_QUANTITY_ACTION, DECREASE_QUANTITY_ACTION, ADD_ORDER, DELETE_ORDER, ProjectAction } from "./actions";
 
-export default function ordersReducer(state: IOrder[] = [], action: ProjectAction) {
+export default function ordersReducer(state: IOrder[] = [], action: ProjectAction): IOrder[] {
   switch (action.type) {
     case ADD_ORDER: {
       return [...state, {

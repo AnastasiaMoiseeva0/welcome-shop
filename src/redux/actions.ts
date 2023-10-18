@@ -22,9 +22,7 @@ interface DecreaseQuantityAction {
 
 interface AddOrderAction {
     type: typeof ADD_ORDER;
-    payload: {
-        order: IOrder
-    }
+    payload: ICard
 }
 
 interface DeleteOrderAction {
@@ -42,8 +40,8 @@ export function decreaseQuantityActionCreator(id : ICard['id']) : DecreaseQuanti
     return {type: DECREASE_QUANTITY_ACTION, payload: {id}}
 } 
 
-export function addOrderActionCreator(order: IOrder) : AddOrderAction {
-    return {type: ADD_ORDER, payload: {order} }
+export function addOrderActionCreator(card: ICard) : AddOrderAction {
+    return {type: ADD_ORDER, payload: card }
 }
 
 export function deleteOrderActionCreator(id: IOrder['id']) : DeleteOrderAction {
