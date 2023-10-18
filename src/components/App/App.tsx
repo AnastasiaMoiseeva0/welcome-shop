@@ -11,16 +11,12 @@ import { ICard } from "../../types/ICard";
 import { ICategory } from "../../types/ICategory";
 
 function App() {
-  const [allItems, setAllItems] = useState([]);
+  const [allItems, setAllItems] = useState<ICard[]>([]);
   const [currentItems, setCurrentItems] = useState<ICard[]>([]);
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
+  const [search, setSearch] = useState<string>("");
+  const [category, setCategory] = useState<string>("all");
   const [categories, setCategories] = useState<ICategory[]>([]);
-  const [isMenuOpen, setMenuOpen] = useState(false);
-
-  interface ICardProps {
-    card: ICard;
-  }
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
 
   Promise.all([getProducts(), getCategories()])
     .then(([products, categories]) => {
@@ -35,11 +31,11 @@ function App() {
     let filtred = allItems;
 
     if (category !== "all") {
-      filtred = filtred.filter(({card} : ICardProps) => card.category === category);
+      filtred = filtred.filter((card) => card.category === category);
     }
 
     if (search) {
-      filtred = filtred.filter(({card} : ICardProps) =>
+      filtred = filtred.filter((card) =>
         card.description.toLowerCase().includes(search.toLowerCase())
       );
     }

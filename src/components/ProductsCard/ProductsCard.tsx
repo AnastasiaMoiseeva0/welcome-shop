@@ -2,7 +2,6 @@ import Rating from "../Rating/Rating"
 import "./ProductsCard.css";
 import Button from "../Button/Button";
 import { useState } from "react";
-import { IOrder } from "../../types/IOrder";
 import { ICard } from "../../types/ICard";
 
 interface ProductCardProps {

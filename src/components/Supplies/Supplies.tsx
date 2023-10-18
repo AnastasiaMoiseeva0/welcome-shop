@@ -1,7 +1,6 @@
 import "./Supplies.css"
 import ProductsCard from "../ProductsCard/ProductsCard";
 import { ICard } from "../../types/ICard";
-import { IOrder } from "../../types/IOrder";
 
 interface SuppliesProps {
     suppliesCards : ICard[],

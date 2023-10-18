@@ -2,30 +2,30 @@ import "./MyCart.css";
 import Button from "../Button/Button";
 import addButton from "../../images/AddButton.svg";
 import substractButton from "../../images/SubstractButton.svg";
-import { useSelector, useDispatch } from "react-redux";
 import { useCallback } from 'react';
 import { increaseQuantityActionCreator, decreaseQuantityActionCreator, deleteOrderActionCreator } from "../../redux/actions";
 import { IOrder } from "../../types/IOrder";
 import { MyStore } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 interface MyCardProps {
   id: number,
 }
 function MyCart({ id }: MyCardProps) {
-  const dispatch = useDispatch();
-  const card = useSelector((state: MyStore) => state.orders.find((order: IOrder) => order.id === id )!);
+  const dispatch = useAppDispatch();
+  const card = useAppSelector((state: MyStore) => state.orders.find((order: IOrder) => order.id === id )!);
 
   const increaseQuantity = useCallback((id: IOrder['id']) => {
     dispatch(increaseQuantityActionCreator(id));
-  }, []);
+  }, [dispatch]);
 
   const decreaseQuantity = useCallback((id: IOrder['id']) => {
     dispatch(decreaseQuantityActionCreator(id));
-  }, []);
+  }, [dispatch]);
 
   const deleteCard = useCallback((id: IOrder['id']) => {
     dispatch(deleteOrderActionCreator(id));
-  }, []);
+  }, [dispatch]);
 
   return (
     <article className="cart">
