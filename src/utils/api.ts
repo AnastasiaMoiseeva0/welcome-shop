@@ -1,11 +1,12 @@
 import suppliesCards from "./suppliesCards.json";
 import categories from "./categories.json";
 import { ICategory } from "../types/ICategory";
+import { ICard } from "../types/ICard";
 
-export function getProducts() {
-  const promise = new Promise((resolve) => {
+export function getProducts(): Promise<ICard[]>  {
+  const promise = new Promise<ICard[]>((resolve) => {
     setTimeout(() => {
-      resolve(suppliesCards);
+      resolve(suppliesCards as ICard[]);
     }, 1000);
   });
   return promise;

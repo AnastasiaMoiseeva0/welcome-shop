@@ -7,7 +7,7 @@ interface AllCategoriesAction {
     payload: ICategory[]
 }
 
-export function allCategoriesActionCreator(categories: ICategory[]) : AllCategoriesAction {
+export function setAllCategoriesActionCreator(categories: ICategory[]) : AllCategoriesAction {
     return {type: SET_ALL_CATEGORIES, payload: categories }
 }
 
