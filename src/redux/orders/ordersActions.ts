@@ -1,10 +1,11 @@
-import { ICard } from "../types/ICard";
-import { IOrder } from "../types/IOrder";
+import { ICard } from "../../types/ICard";
+import { IOrder } from "../../types/IOrder";
 
 export const INCREASE_QUANTITY_ACTION = 'INCREASE_QUANTITY_ACTION';
 export const DECREASE_QUANTITY_ACTION = 'DECREASE_QUANTITY_ACTION';
 export const ADD_ORDER = 'ADD_ORDER';
 export const DELETE_ORDER = 'DELETE_ORDER';
+export const CHOOSE_CATEGORY = 'CHOOSE_CATEGORY';
 
 interface IncreaseQuantityAction {
     type: typeof INCREASE_QUANTITY_ACTION;
@@ -22,7 +23,7 @@ interface DecreaseQuantityAction {
 
 interface AddOrderAction {
     type: typeof ADD_ORDER;
-    payload: ICard
+    payload: ICard;
 }
 
 interface DeleteOrderAction {
@@ -48,5 +49,4 @@ export function deleteOrderActionCreator(id: IOrder['id']) : DeleteOrderAction {
     return {type: DELETE_ORDER, payload: { id } }
 }
 
-
-export type ProjectAction = IncreaseQuantityAction | DecreaseQuantityAction | AddOrderAction | DeleteOrderAction;
+export type OrdersActions = IncreaseQuantityAction | DecreaseQuantityAction | AddOrderAction | DeleteOrderAction;

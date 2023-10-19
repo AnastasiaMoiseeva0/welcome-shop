@@ -1,13 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MenuList.css";
-import { ICategory } from "../../types/ICategory";
+import { useAppSelector, useSelectedCategoryDispatch } from "../../redux/hooks";
+import { useCallback } from "react";
+import { ICard } from "../../types/ICard";
+import { selectorCategoryActionCreator } from "../../redux/selectedCategory/selectedCategoryActions";
 
-type MenuListProps = Partial<{
-  chooseCategory: (category: string) => void;
-  categories: ICategory[];
-}>
+function MenuList() {
+  const categories = useAppSelector(state => state.allCategories);
+  const selectedDispatch = useSelectedCategoryDispatch();
 
-function MenuList({chooseCategory, categories } : MenuListProps) {
+  const chooseCategory = useCallback((category : ICard['category']) => {
+    selectedDispatch(selectorCategoryActionCreator(category));
+  }, [selectedDispatch]);
+  
   return (
     <ul className="menu-list">
       { categories?.map((el) => (

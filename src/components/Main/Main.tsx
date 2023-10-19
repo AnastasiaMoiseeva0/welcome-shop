@@ -3,21 +3,18 @@ import Supplies from "../Supplies/Supplies";
 import "./Main.css";
 import Menu from '../Menu/Menu';
 import { useCallback } from 'react';
-import { addOrderActionCreator } from "../../redux/actions";
-import { ICategory } from "../../types/ICategory";
+import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
-import { useAppDispatch } from "../../redux/hooks";
+import { useOrdersDispatch } from "../../redux/hooks";
 
 interface MainProps {
-  categories: ICategory[];
   onMenuClose: () => void;
   isOpen: boolean;
   suppliesCards: ICard[];
-  chooseCategory: (category: string) => void;
 }
 
-function Main({categories, suppliesCards, chooseCategory, onMenuClose, isOpen}: MainProps) {
-  const dispatch = useAppDispatch();
+function Main({ suppliesCards, onMenuClose, isOpen}: MainProps) {
+  const dispatch = useOrdersDispatch();
 
   const addToOrder = useCallback((card: ICard) => {
     dispatch(addOrderActionCreator(card));
@@ -32,8 +29,6 @@ function Main({categories, suppliesCards, chooseCategory, onMenuClose, isOpen}: 
       <Menu
         onMenuClose={onMenuClose}
         isOpen={isOpen}
-        categories={categories}
-        chooseCategory={chooseCategory}
       />
     </div>
   );

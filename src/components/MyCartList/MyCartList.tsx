@@ -2,32 +2,26 @@ import MyCart from "../MyCart/MyCart";
 import PayCheckbox from "../PayCheckbox/PayCheckbox";
 import "./MyCartList.css";
 import Menu from "../Menu/Menu";
-import { MyStore } from "../../redux/store";
 import { IOrder } from "../../types/IOrder";
-import { ICategory } from "../../types/ICategory";
 import { useAppSelector } from "../../redux/hooks";
 
 type MyCartListProps = {
   onMenuClose: () => void;
   isOpen: boolean;
-  chooseCategory: (category: string) => void;
-  categories: ICategory[];
 };
 
 function MyCartList({
   onMenuClose,
   isOpen,
-  categories,
-  chooseCategory,
 }: MyCartListProps) {
 
-  const totalPrice = useAppSelector((state: MyStore) => {
+  const totalPrice = useAppSelector((state) => {
     return state.orders.reduce((acc, product) => {
       return (acc += product.quantity * product.price);
     }, 0);
   });
 
-  const orders = useAppSelector((state: MyStore) => state.orders);
+  const orders = useAppSelector((state) => state.orders);
 
   const showOrders = (orders: IOrder[]) => {
     return (
@@ -63,8 +57,6 @@ function MyCartList({
         <Menu
           onMenuClose={onMenuClose}
           isOpen={isOpen}
-          categories={categories}
-          chooseCategory={chooseCategory}
         />
       </section>
     </>

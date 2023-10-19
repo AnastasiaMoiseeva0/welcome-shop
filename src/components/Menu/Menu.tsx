@@ -4,16 +4,13 @@ import "./Menu.css";
 import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
-import { ICategory } from "../../types/ICategory";
 
 type MenuProps = Partial<{
   isOpen: boolean,
   onMenuClose: () => void,
-  categories: ICategory[],
-  chooseCategory: (category: string) => void,
 }>
 
-function Menu({ isOpen, onMenuClose, categories, chooseCategory }: MenuProps) {
+function Menu({ isOpen, onMenuClose}: MenuProps) {
   return (
     <div className={`menu ${isOpen ? "menu_opened" : ""}`} onClick={onMenuClose}>
       <div className="menu__header">
@@ -42,7 +39,7 @@ function Menu({ isOpen, onMenuClose, categories, chooseCategory }: MenuProps) {
             <Link to="/my-cart" className="header__cart">my cart</Link>
           </Button>
         </div>
-        <MenuList chooseCategory={chooseCategory} categories={categories} />
+        <MenuList />
       </nav>
     </div>
   );

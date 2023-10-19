@@ -4,24 +4,28 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
 import ProductsPage from "../ProductsPage/ProductsPage";
-import { getProducts, getCategories } from "../../utils/api.js";
-import {Provider} from 'react-redux';
-import {store} from "../../redux/store";
+import { getProducts, getCategories } from "../../utils/api";
 import { ICard } from "../../types/ICard";
-import { ICategory } from "../../types/ICategory";
+import { useAllCategoriesDispatch, useAppSelector } from "../../redux/hooks";
+import { allCategoriesActionCreator } from "../../redux/allCategories/allCategoriesActions";
 
 function App() {
   const [allItems, setAllItems] = useState<ICard[]>([]);
   const [currentItems, setCurrentItems] = useState<ICard[]>([]);
   const [search, setSearch] = useState<string>("");
-  const [category, setCategory] = useState<string>("all");
-  const [categories, setCategories] = useState<ICategory[]>([]);
+  const category = useAppSelector(state => state.selectedCategory);
+
+
+  // const [categories, setCategories] = useState<ICategory[]>([]);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+  
+  const allCategoriesDispatch = useAllCategoriesDispatch();
+
 
   Promise.all([getProducts(), getCategories()])
     .then(([products, categories]) => {
-      setAllItems(products);
-      setCategories(categories);
+      //setAllItems(products);
+      allCategoriesDispatch(allCategoriesActionCreator(categories))
     })
     .catch((error) => {
       console.log(error);
@@ -43,9 +47,7 @@ function App() {
     setCurrentItems(filtred);
   }, [category, search, allItems]);
 
-  function chooseCategory(category : ICard['category']) {
-    setCategory(category);
-  }
+
 
   function handleMenuClick() {
     setMenuOpen(true);
@@ -56,52 +58,44 @@ function App() {
   }
 
   return (
-    <Provider store={store}>
-    <>
-      <Header
-        search={search}
-        onSearchChange={(value) => setSearch(value)}
-        onMenuOpen={() => handleMenuClick()}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Main
-              categories={categories}
-              suppliesCards={currentItems}
-              isOpen={isMenuOpen}
-              onMenuClose={() => closeMenu()}
-              chooseCategory={chooseCategory}
-            />
-          }
+      <>
+        <Header
+          search={search}
+          onSearchChange={(value) => setSearch(value)}
+          onMenuOpen={() => handleMenuClick()}
         />
-        <Route
-          path="/my-cart"
-          element={
-            <MyCartList
-              categories={categories}
-              isOpen={isMenuOpen}
-              onMenuClose={() => closeMenu()}
-              chooseCategory={chooseCategory}
-            />
-          }
-        />
-        <Route
-          path="/products"
-          element={
-            <ProductsPage
-              categories={categories}
-              suppliesCards={currentItems}
-              isOpen={isMenuOpen}
-              onMenuClose={() => closeMenu()}
-              chooseCategory={chooseCategory}
-            />
-          }
-        />
-      </Routes>
-    </>
-    </Provider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main
+                suppliesCards={currentItems}
+                isOpen={isMenuOpen}
+                onMenuClose={() => closeMenu()}
+              />
+            }
+          />
+          <Route
+            path="/my-cart"
+            element={
+              <MyCartList
+                isOpen={isMenuOpen}
+                onMenuClose={() => closeMenu()}
+              />
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <ProductsPage
+                suppliesCards={currentItems}
+                isOpen={isMenuOpen}
+                onMenuClose={() => closeMenu()}
+              />
+            }
+          />
+        </Routes>
+      </>
   );
 }
 
