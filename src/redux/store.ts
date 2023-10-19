@@ -1,14 +1,13 @@
 import { createStore, combineReducers } from "redux";
-import ordersReducer from "./ordersReducer";
-import { IOrder } from "../types/IOrder";
-
-export interface MyStore {
-    orders: IOrder[]
-}
+import ordersReducer from "./orders/ordersReducer";
+import selectedCategoryReducer from "./selectedCategory/selectedCategoryReducer";
+import allCategoriesReducer from "./allCategories/allCategoriesReducer";
 
 export const store = createStore(
     combineReducers({
-        orders: ordersReducer
+        orders: ordersReducer,
+        selectedCategory: selectedCategoryReducer,
+        allCategories: allCategoriesReducer,
     })
 )
 

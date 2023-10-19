@@ -3,21 +3,18 @@ import ProductsCard from "../ProductsCard/ProductsCard";
 import "./ProductsPage.css";
 import Menu from "../Menu/Menu";
 import { useCallback } from 'react';
-import { addOrderActionCreator } from "../../redux/actions";
+import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
-import { ICategory } from "../../types/ICategory";
-import { useAppDispatch } from "../../redux/hooks";
+import { useOrdersDispatch } from "../../redux/hooks";
 
 interface ProductPageProps {
   onMenuClose: () => void;
   isOpen: boolean;
-  chooseCategory: (category: string) => void;
-  categories: ICategory[];
   suppliesCards: ICard[];
 };
 
-function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, isOpen } : ProductPageProps) {
-  const dispatch = useAppDispatch();
+function ProductsPage({suppliesCards, onMenuClose, isOpen } : ProductPageProps) {
+  const dispatch = useOrdersDispatch();
 
   const addToOrder = useCallback((card : ICard) => {
     dispatch(addOrderActionCreator(card));
@@ -27,7 +24,7 @@ function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, i
     <>
       <section className="products">
         <div className="products__link">
-          <MenuList chooseCategory={chooseCategory} categories={categories}/>
+          <MenuList />
         </div>
         <div className="products__list">
           {suppliesCards.map((card) => (
@@ -41,8 +38,6 @@ function ProductsPage({suppliesCards, chooseCategory, categories, onMenuClose, i
         <Menu
         onMenuClose={onMenuClose}
         isOpen={isOpen}
-        categories={categories}
-        chooseCategory={chooseCategory}
       />
       </section>
     </>
