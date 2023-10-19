@@ -7,16 +7,18 @@ import { selectorCategoryActionCreator } from "../../redux/selectedCategory/sele
 
 function MenuList() {
   const categories = useAppSelector(state => state.allCategories);
+  const category = useAppSelector(state => state.selectedCategory);
+
   const selectedDispatch = useSelectedCategoryDispatch();
 
-  const chooseCategory = useCallback((category : ICard['category']) => {
+  const chooseCategory = useCallback((category : ICard['category'] | null) => {
     selectedDispatch(selectorCategoryActionCreator(category));
   }, [selectedDispatch]);
   
   return (
     <ul className="menu-list">
       { categories?.map((el) => (
-      <li className="menu-list__link" key={el.key} onClick={() => chooseCategory ? chooseCategory(el.key) : undefined}>
+      <li className={`menu-list__link ${el.key ===category ? 'menu-list__link_active' : ''}`} key={el.key} onClick={() => chooseCategory ? chooseCategory(el.key === category ? null : el.key) : undefined}>
       <FontAwesomeIcon className="menu-list__icon" icon={el.icon} />
       <p className="menu-list__link-name">{el.name}</p>
     </li>

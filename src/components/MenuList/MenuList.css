@@ -11,6 +11,11 @@
     padding-bottom: 30px;
 }
 
+.menu-list__link_active .menu-list__link-name {
+    color: red;
+}
+
+
 .menu-list__link:hover {
     cursor: pointer;
     opacity: 0.5;

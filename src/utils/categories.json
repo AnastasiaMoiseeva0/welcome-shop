@@ -1,10 +1,5 @@
 [
   {
-    "key": "all",
-    "name": "all products",
-    "icon": "store"
-  },
-  {
     "key": "clothing & shoes",
     "name": "clothing & shoes",
     "icon": "shirt"

@@ -6,35 +6,35 @@ import MyCartList from "../MyCartList/MyCartList";
 import ProductsPage from "../ProductsPage/ProductsPage";
 import { getProducts, getCategories } from "../../utils/api";
 import { ICard } from "../../types/ICard";
-import { useAllCategoriesDispatch, useAppSelector } from "../../redux/hooks";
-import { allCategoriesActionCreator } from "../../redux/allCategories/allCategoriesActions";
+import { useAllCategoriesDispatch, useAppSelector, useProductsDispatch } from "../../redux/hooks";
+import { setAllCategoriesActionCreator } from "../../redux/allCategories/allCategoriesActions";
+import { setAllProductsActionCreator } from "../../redux/allProducts/allProductsActions";
 
 function App() {
-  const [allItems, setAllItems] = useState<ICard[]>([]);
   const [currentItems, setCurrentItems] = useState<ICard[]>([]);
   const [search, setSearch] = useState<string>("");
   const category = useAppSelector(state => state.selectedCategory);
-
-
-  // const [categories, setCategories] = useState<ICategory[]>([]);
+  const products = useAppSelector(state => {
+    return state.allProducts;
+  })
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
-  
   const allCategoriesDispatch = useAllCategoriesDispatch();
+  const allProductsDispatch = useProductsDispatch();
 
 
   Promise.all([getProducts(), getCategories()])
     .then(([products, categories]) => {
-      //setAllItems(products);
-      allCategoriesDispatch(allCategoriesActionCreator(categories))
+      allProductsDispatch(setAllProductsActionCreator(products))
+      allCategoriesDispatch(setAllCategoriesActionCreator(categories))
     })
     .catch((error) => {
       console.log(error);
     });
 
   useEffect(() => {
-    let filtred = allItems;
+    let filtred = products;
 
-    if (category !== "all") {
+    if (category) {
       filtred = filtred.filter((card) => card.category === category);
     }
 
@@ -45,7 +45,7 @@ function App() {
     }
 
     setCurrentItems(filtred);
-  }, [category, search, allItems]);
+  }, [category, search, products]);
 
 
 
