@@ -7,11 +7,9 @@ import Button from "../Button/Button";
 
 interface HeaderProps {
   onMenuOpen: () => void,
-  onSearchChange: (value: string) => void,
-  search: string
 }
 
-function Header({ onMenuOpen, onSearchChange, search }: HeaderProps) {
+function Header({ onMenuOpen }: HeaderProps) {
 
   return (
     <div>
@@ -26,7 +24,7 @@ function Header({ onMenuOpen, onSearchChange, search }: HeaderProps) {
         >
           <FontAwesomeIcon className="header__icon" icon={"bars"} />
         </Button>
-        <SearchBar search={search} onSearchChange={onSearchChange} />
+        <SearchBar />
         <div className="header__navigation">
           <Button className="header__products-button">
             <Link to="/products" className="header__products">all products</Link>

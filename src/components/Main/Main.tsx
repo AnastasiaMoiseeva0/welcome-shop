@@ -10,10 +10,9 @@ import { useOrdersDispatch } from "../../redux/hooks";
 interface MainProps {
   onMenuClose: () => void;
   isOpen: boolean;
-  suppliesCards: ICard[];
 }
 
-function Main({ suppliesCards, onMenuClose, isOpen}: MainProps) {
+function Main({ onMenuClose, isOpen}: MainProps) {
   const dispatch = useOrdersDispatch();
 
   const addToOrder = useCallback((card: ICard) => {
@@ -24,7 +23,7 @@ function Main({ suppliesCards, onMenuClose, isOpen}: MainProps) {
     <div>
       <main>
         <Lead />
-        <Supplies suppliesCards={suppliesCards} onAddProduct={addToOrder}/>
+        <Supplies onAddProduct={addToOrder}/>
       </main>
       <Menu
         onMenuClose={onMenuClose}

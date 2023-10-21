@@ -3,6 +3,7 @@ import ordersReducer from "./orders/ordersReducer";
 import selectedCategoryReducer from "./selectedCategory/selectedCategoryReducer";
 import allCategoriesReducer from "./allCategories/allCategoriesReducer";
 import allProductsReducer from "./allProducts/allProductsReducer";
+import setSearchReducer from "./search/searchReducer";
 
 export const store = createStore(
     combineReducers({
@@ -10,6 +11,7 @@ export const store = createStore(
         selectedCategory: selectedCategoryReducer,
         allCategories: allCategoriesReducer,
         allProducts: allProductsReducer,
+        search: setSearchReducer,
     })
 )
 

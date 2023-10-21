@@ -5,20 +5,32 @@ import Menu from "../Menu/Menu";
 import { useCallback } from 'react';
 import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
-import { useOrdersDispatch } from "../../redux/hooks";
+import { useAppSelector, useOrdersDispatch } from "../../redux/hooks";
 
 interface ProductPageProps {
   onMenuClose: () => void;
   isOpen: boolean;
-  suppliesCards: ICard[];
 };
 
-function ProductsPage({suppliesCards, onMenuClose, isOpen } : ProductPageProps) {
+function ProductsPage({ onMenuClose, isOpen } : ProductPageProps) {
   const dispatch = useOrdersDispatch();
+  const category = useAppSelector(state => state.selectedCategory);
 
   const addToOrder = useCallback((card : ICard) => {
     dispatch(addOrderActionCreator(card));
   }, [dispatch]);
+
+  const filtred = useAppSelector(({ selectedCategory, allProducts, search}) => {
+    if (selectedCategory) {
+      return allProducts.filter((card) => card.category === category);
+    }
+
+    if (search) {
+      return allProducts.filter((card) => card.description.toLowerCase().includes(search?.toLowerCase()))
+    }
+
+    return allProducts;
+  })
 
   return (
     <>
@@ -27,7 +39,7 @@ function ProductsPage({suppliesCards, onMenuClose, isOpen } : ProductPageProps) 
           <MenuList />
         </div>
         <div className="products__list">
-          {suppliesCards.map((card) => (
+          {filtred.map((card) => (
             <ProductsCard
               key={card.id}
               card={card}
