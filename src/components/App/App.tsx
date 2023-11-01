@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
@@ -10,8 +9,6 @@ import { setAllCategoriesActionCreator } from "../../redux/allCategories/allCate
 import { setAllProductsActionCreator } from "../../redux/allProducts/allProductsActions";
 
 function App() {
-  //const [search, setSearch] = useState<string>("");
-  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const allCategoriesDispatch = useAllCategoriesDispatch();
   const allProductsDispatch = useProductsDispatch();
 
@@ -24,63 +21,28 @@ function App() {
     .catch((error) => {
       console.log(error);
     });
-
-  // useEffect(() => {
-  //   let filtred = products;
-
-  //   if (category) {
-  //     filtred = filtred.filter((card) => card.category === category);
-  //   }
-
-  //   if (search) {
-  //     filtred = filtred.filter((card) =>
-  //       card.description.toLowerCase().includes(search.toLowerCase())
-  //     );
-  //   }
-
-  //   allProductsDispatch(setAllProductsActionCreator(filtred))
-    
-  // }, [category, search, products, allProductsDispatch]);
-
-  function handleMenuClick() {
-    setMenuOpen(true);
-  }
-  
-  function closeMenu() {
-    setMenuOpen(false);
-  }
-
   return (
       <>
         <Header
-          onMenuOpen={() => handleMenuClick()}
         />
         <Routes>
           <Route
             path="/"
             element={
               <Main
-                isOpen={isMenuOpen}
-                onMenuClose={() => closeMenu()}
               />
             }
           />
           <Route
             path="/my-cart"
             element={
-              <MyCartList
-                isOpen={isMenuOpen}
-                onMenuClose={() => closeMenu()}
-              />
+              <MyCartList />
             }
           />
           <Route
             path="/products"
             element={
-              <ProductsPage
-                isOpen={isMenuOpen}
-                onMenuClose={() => closeMenu()}
-              />
+              <ProductsPage />
             }
           />
         </Routes>

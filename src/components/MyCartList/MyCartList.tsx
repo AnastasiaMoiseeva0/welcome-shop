@@ -5,15 +5,7 @@ import Menu from "../Menu/Menu";
 import { IOrder } from "../../types/IOrder";
 import { useAppSelector } from "../../redux/hooks";
 
-type MyCartListProps = {
-  onMenuClose: () => void;
-  isOpen: boolean;
-};
-
-function MyCartList({
-  onMenuClose,
-  isOpen,
-}: MyCartListProps) {
+function MyCartList() {
 
   const totalPrice = useAppSelector((state) => {
     return state.orders.reduce((acc, product) => {
@@ -55,8 +47,6 @@ function MyCartList({
           <PayCheckbox />
         </div>
         <Menu
-          onMenuClose={onMenuClose}
-          isOpen={isOpen}
         />
       </section>
     </>

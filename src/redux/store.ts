@@ -4,6 +4,7 @@ import selectedCategoryReducer from "./selectedCategory/selectedCategoryReducer"
 import allCategoriesReducer from "./allCategories/allCategoriesReducer";
 import allProductsReducer from "./allProducts/allProductsReducer";
 import setSearchReducer from "./search/searchReducer";
+import setMenuOpenReducer from "./menuOpen/setMenuOpenReducer";
 
 export const store = createStore(
     combineReducers({
@@ -12,6 +13,7 @@ export const store = createStore(
         allCategories: allCategoriesReducer,
         allProducts: allProductsReducer,
         search: setSearchReducer,
+        isMenuOpen: setMenuOpenReducer,
     })
 )
 

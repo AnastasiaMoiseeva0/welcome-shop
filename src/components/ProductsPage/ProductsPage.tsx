@@ -7,12 +7,7 @@ import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
 import { useAppSelector, useOrdersDispatch } from "../../redux/hooks";
 
-interface ProductPageProps {
-  onMenuClose: () => void;
-  isOpen: boolean;
-};
-
-function ProductsPage({ onMenuClose, isOpen } : ProductPageProps) {
+function ProductsPage() {
   const dispatch = useOrdersDispatch();
   const category = useAppSelector(state => state.selectedCategory);
 
@@ -48,8 +43,6 @@ function ProductsPage({ onMenuClose, isOpen } : ProductPageProps) {
           ))}
         </div>
         <Menu
-        onMenuClose={onMenuClose}
-        isOpen={isOpen}
       />
       </section>
     </>
