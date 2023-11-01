@@ -7,17 +7,13 @@ import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
 import { useOrdersDispatch } from "../../redux/hooks";
 
-interface MainProps {
-  onMenuClose: () => void;
-  isOpen: boolean;
-}
-
-function Main({ onMenuClose, isOpen}: MainProps) {
+function Main() {
   const dispatch = useOrdersDispatch();
 
   const addToOrder = useCallback((card: ICard) => {
     dispatch(addOrderActionCreator(card));
   }, [dispatch]);
+
 
   return (
     <div>
@@ -26,8 +22,6 @@ function Main({ onMenuClose, isOpen}: MainProps) {
         <Supplies onAddProduct={addToOrder}/>
       </main>
       <Menu
-        onMenuClose={onMenuClose}
-        isOpen={isOpen}
       />
     </div>
   );

@@ -4,7 +4,7 @@ type ButtonProps = Partial<{
   children: string | JSX.Element | JSX.Element[],
   className: string,
   transparentButton: string,
-  onClick: () => void,
+  onClick: (event:  React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
   type: "button" | "submit" | "reset" | undefined,
   disabled: boolean,
 }>;
