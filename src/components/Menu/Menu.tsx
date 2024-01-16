@@ -14,7 +14,7 @@ function Menu() {
     return state.isMenuOpen.menuOpen
   });
 
-  function closeMenu(event:  React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function closeMenu(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.stopPropagation();
     dispatch(setMenuOpen(false));
   }

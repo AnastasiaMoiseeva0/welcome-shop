@@ -22,6 +22,15 @@
   row-gap: 30px;
 }
 
+.products__list-empty {
+  margin: 0;
+  padding-top: 40px;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  color: gray;
+  text-align: center;
+}
+
 @media screen and (min-width: 1024px) {
   .products__list {
     border-radius: 8px;
@@ -30,10 +39,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 64px;
     row-gap: 32px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 58px;
-    padding-right: 58px;
+    padding: 14px 58px;
   }
 }
 
