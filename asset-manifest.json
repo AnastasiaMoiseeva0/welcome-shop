@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8ce297a8.css",
+    "main.js": "/static/js/main.9797e30a.js",
+    "static/js/787.e4a9b945.chunk.js": "/static/js/787.e4a9b945.chunk.js",
+    "static/media/main-image.jpg": "/static/media/main-image.4f94afff1559f91db034.jpg",
+    "static/media/Inter-Black.woff": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Poppins-Medium.woff": "/static/media/Poppins-Medium.feec26f7a410bc253f72.woff",
+    "static/media/Poppins-SemiBold.woff": "/static/media/Poppins-SemiBold.b5329103e193298fe15e.woff",
+    "static/media/PayPal.svg": "/static/media/PayPal.14d853d4444d328aa46c859d68dc788d.svg",
+    "static/media/logo.svg": "/static/media/logo.f967e5ad3c97ae3223087109801ddb20.svg",
+    "static/media/Discover.svg": "/static/media/Discover.fd314112615e448448d4ce2ef964f314.svg",
+    "static/media/Maestro.svg": "/static/media/Maestro.dd6a197682405a395e96f1da8cd84cda.svg",
+    "static/media/MasterCard.svg": "/static/media/MasterCard.b1b112d2dfc90007ac0d33801c55c1af.svg",
+    "static/media/AddButton.svg": "/static/media/AddButton.a6a2648e5743b96b832c5f5d91547fc6.svg",
+    "static/media/SubstractButton.svg": "/static/media/SubstractButton.c26dc220c8a8fad2be887d1dce7c4703.svg",
+    "static/media/GooglePay.svg": "/static/media/GooglePay.58500f8d1636cc8f199c368fd6d85094.svg",
+    "static/media/toggler-active.svg": "/static/media/toggler-active.64ef54662a808d780a66.svg",
+    "static/media/toggler.svg": "/static/media/toggler.f5d3c1de781032f4ec85.svg",
+    "static/media/ApplePay.svg": "/static/media/ApplePay.ef356c56c56e288de647818a0a06f7f6.svg",
+    "static/media/Visa.svg": "/static/media/Visa.1877e084bed7bb15cc5c3342ce65ae57.svg",
+    "index.html": "/index.html",
+    "main.8ce297a8.css.map": "/static/css/main.8ce297a8.css.map",
+    "main.9797e30a.js.map": "/static/js/main.9797e30a.js.map",
+    "787.e4a9b945.chunk.js.map": "/static/js/787.e4a9b945.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ce297a8.css",
+    "static/js/main.9797e30a.js"
+  ]
+}
