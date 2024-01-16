@@ -37,5 +37,5 @@ npm run start
 
 ## 🌐Ссылки
 
-- Ссылка на сайт: [сайт WelcomeShop](http://ttexpress.acceleratorpracticum.ru/)
+- Ссылка на сайт: [сайт WelcomeShop](https://anastasiamoiseeva0.github.io/welcome-shop/)
 - Github репозиторий: https://github.com/AnastasiaMoiseeva0/welcome-shop.git
