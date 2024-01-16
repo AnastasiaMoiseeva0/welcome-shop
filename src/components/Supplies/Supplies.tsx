@@ -9,7 +9,7 @@ interface SuppliesProps {
 
 function Supplies({ onAddProduct} : SuppliesProps) {
 
-  const products = useAppSelector(state => state.allProducts);
+  const products = useAppSelector(state => state.allProducts.products);
 
     return(
         <section className="supplies">

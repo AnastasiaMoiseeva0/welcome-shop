@@ -3,27 +3,28 @@ import Button from "../Button/Button";
 import addButton from "../../images/AddButton.svg";
 import substractButton from "../../images/SubstractButton.svg";
 import { useCallback } from 'react';
-import { increaseQuantityActionCreator, decreaseQuantityActionCreator, deleteOrderActionCreator } from "../../redux/orders/ordersActions";
 import { IOrder } from "../../types/IOrder";
-import { useOrdersDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
+import { useDispatch } from "react-redux";
+import { increaseQuantity, decreaseQuantity, deleteOrder } from '../../redux/orders/ordersSlice';
 
 interface MyCardProps {
   id: number,
 }
 function MyCart({ id }: MyCardProps) {
-  const dispatch = useOrdersDispatch();
-  const card = useAppSelector((state) => state.orders.find((order: IOrder) => order.id === id )!);
+  const dispatch = useDispatch();
+  const card = useAppSelector((state) => state.orders.orders.find((order: IOrder) => order.id === id )!);
 
-  const increaseQuantity = useCallback((id: IOrder['id']) => {
-    dispatch(increaseQuantityActionCreator(id));
+  const increaseQuantityOrder = useCallback((id: IOrder['id']) => {
+    dispatch(increaseQuantity(id));
   }, [dispatch]);
 
-  const decreaseQuantity = useCallback((id: IOrder['id']) => {
-    dispatch(decreaseQuantityActionCreator(id));
+  const decreaseQuantityOrder = useCallback((id: IOrder['id']) => {
+    dispatch(decreaseQuantity(id));
   }, [dispatch]);
 
   const deleteCard = useCallback((id: IOrder['id']) => {
-    dispatch(deleteOrderActionCreator(id));
+    dispatch(deleteOrder(id));
   }, [dispatch]);
 
   return (
@@ -39,7 +40,7 @@ function MyCart({ id }: MyCardProps) {
       </div>
       <div className="cart__price-container">
         <div className="cart__counter">
-          <Button transparentButton="transparent" className="cart__button" onClick={() => increaseQuantity(id)}>
+          <Button transparentButton="transparent" className="cart__button" onClick={() => increaseQuantityOrder(id)}>
             <img
               className="cart__round-button"
               alt="добавить товар"
@@ -47,7 +48,7 @@ function MyCart({ id }: MyCardProps) {
             />
           </Button>
           <p className="cart__counter-title">{card.quantity}</p>
-          <Button transparentButton="transparent" className="cart__button" onClick={() => decreaseQuantity(id)}>
+          <Button transparentButton="transparent" className="cart__button" onClick={() => decreaseQuantityOrder(id)}>
             <img
               className="cart__round-button"
               alt="убрать товар"

@@ -4,11 +4,11 @@ import logo from "../../images/logo.svg";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Header.css";
 import Button from "../Button/Button";
-import { useAppSelector, useSetMenuOpenDispatch } from "../../redux/hooks";
-import { setMenuOpenActionCreator } from "../../redux/menuOpen/setMenuOpenActions";
+import { setMenuOpen } from '../../redux/menuOpen/setMenuOpenSlice';
+import { useDispatch } from "react-redux";
 
 function Header() {
-  const dispatch = useSetMenuOpenDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -19,7 +19,7 @@ function Header() {
         <Button
           className="header__button"
           transparentButton="transparent"
-          onClick={() => dispatch(setMenuOpenActionCreator(true))}
+          onClick={() => dispatch(setMenuOpen(true))}
         >
           <FontAwesomeIcon className="header__icon" icon={"bars"} />
         </Button>

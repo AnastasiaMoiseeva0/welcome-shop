@@ -1,20 +1,20 @@
-import { createStore, combineReducers } from "redux";
-import ordersReducer from "./orders/ordersReducer";
-import selectedCategoryReducer from "./selectedCategory/selectedCategoryReducer";
-import allCategoriesReducer from "./allCategories/allCategoriesReducer";
-import allProductsReducer from "./allProducts/allProductsReducer";
-import setSearchReducer from "./search/searchReducer";
-import setMenuOpenReducer from "./menuOpen/setMenuOpenReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import ordersSlice from "./orders/ordersSlice";
+import selectedCategorySlice from "./selectedCategory/selectedCategorySlice";
+import allCategoriesSlice from "./allCategories/allCategoriesSlice";
+import allProductsSlice from "./allProducts/allProductsSlice";
+import setSearchSlice from "./search/searchSlice";
+import setMenuOpenSlice from "./menuOpen/setMenuOpenSlice";
 
-export const store = createStore(
-    combineReducers({
-        orders: ordersReducer,
-        selectedCategory: selectedCategoryReducer,
-        allCategories: allCategoriesReducer,
-        allProducts: allProductsReducer,
-        search: setSearchReducer,
-        isMenuOpen: setMenuOpenReducer,
-    })
-)
+export const store = configureStore({
+    reducer: {
+        orders: ordersSlice,
+        selectedCategory: selectedCategorySlice,
+        allCategories: allCategoriesSlice,
+        allProducts: allProductsSlice,
+        search: setSearchSlice,
+        isMenuOpen: setMenuOpenSlice,
+    }
+})
 
 export type RootState = ReturnType<typeof store.getState>

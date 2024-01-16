@@ -1,10 +1,11 @@
-import { useAppSelector, useSearchDispatch } from "../../redux/hooks";
-import { setSearchActionCreator } from "../../redux/search/searchActions";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../redux/hooks";
+import { searchProducts } from '../../redux/search/searchSlice';
 import "./SearchBar.css";
 
 function SearchBar(){
-  const search = useAppSelector((state) => state.search);
-  const dispatch = useSearchDispatch();
+  const search = useAppSelector((state) => state.search.searchProducts);
+  const dispatch = useDispatch();
 
   return (
     <form className="search-bar">
@@ -15,7 +16,7 @@ function SearchBar(){
         type="text"
         name="searchInput"
         required
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => dispatch(setSearchActionCreator(e.currentTarget.value))}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => dispatch(searchProducts(e.currentTarget.value))}
       ></input>
   </form>
   );

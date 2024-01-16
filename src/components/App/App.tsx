@@ -1,22 +1,21 @@
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import MyCartList from "../MyCartList/MyCartList";
 import ProductsPage from "../ProductsPage/ProductsPage";
 import { getProducts, getCategories } from "../../utils/api";
-import { useAllCategoriesDispatch, useProductsDispatch } from "../../redux/hooks";
-import { setAllCategoriesActionCreator } from "../../redux/allCategories/allCategoriesActions";
-import { setAllProductsActionCreator } from "../../redux/allProducts/allProductsActions";
+import { allCategories } from '../../redux/allCategories/allCategoriesSlice';
+import { allProducts } from '../../redux/allProducts/allProductsSlice';
 
 function App() {
-  const allCategoriesDispatch = useAllCategoriesDispatch();
-  const allProductsDispatch = useProductsDispatch();
+  const dispatch = useDispatch();
 
 
   Promise.all([getProducts(), getCategories()])
     .then(([products, categories]) => {
-      allProductsDispatch(setAllProductsActionCreator(products))
-      allCategoriesDispatch(setAllCategoriesActionCreator(categories))
+      dispatch(allProducts(products))
+      dispatch(allCategories(categories))
     })
     .catch((error) => {
       console.log(error);

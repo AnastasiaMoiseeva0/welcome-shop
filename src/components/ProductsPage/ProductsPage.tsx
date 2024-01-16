@@ -3,28 +3,29 @@ import ProductsCard from "../ProductsCard/ProductsCard";
 import "./ProductsPage.css";
 import Menu from "../Menu/Menu";
 import { useCallback } from 'react';
-import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
-import { useAppSelector, useOrdersDispatch } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
+import { useDispatch } from "react-redux";
+import { addOrder } from "../../redux/orders/ordersSlice";
 
 function ProductsPage() {
-  const dispatch = useOrdersDispatch();
-  const category = useAppSelector(state => state.selectedCategory);
+  const dispatch = useDispatch();
+  const category = useAppSelector(state => state.selectedCategory.selectCategory);
 
   const addToOrder = useCallback((card : ICard) => {
-    dispatch(addOrderActionCreator(card));
+    dispatch(addOrder(card));
   }, [dispatch]);
 
-  const filtred = useAppSelector(({ selectedCategory, allProducts, search}) => {
-    if (selectedCategory) {
-      return allProducts.filter((card) => card.category === category);
+  const filtred = useAppSelector(({ allProducts, search}) => {
+    if (category) {
+      return allProducts.products.filter((card) => card.category === category);
     }
 
-    if (search) {
-      return allProducts.filter((card) => card.description.toLowerCase().includes(search?.toLowerCase()))
+    if (search.searchProducts) {
+      return allProducts.products.filter((card) => search.searchProducts && card.description.toLowerCase().includes(search.searchProducts.toLowerCase()))
     }
 
-    return allProducts;
+    return allProducts.products;
   })
 
   return (

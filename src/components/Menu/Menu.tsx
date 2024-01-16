@@ -4,23 +4,23 @@ import "./Menu.css";
 import logo from "../../images/logo.svg";
 import MenuList from "../MenuList/MenuList";
 import Button from "../Button/Button";
-import { useAppSelector, useSetMenuOpenDispatch } from "../../redux/hooks";
-import { setMenuOpenActionCreator } from "../../redux/menuOpen/setMenuOpenActions";
+import { useAppSelector } from "../../redux/hooks";
+import { useDispatch } from "react-redux";
+import { setMenuOpen } from "../../redux/menuOpen/setMenuOpenSlice";
 
 function Menu() {
-  const dispatch = useSetMenuOpenDispatch();
+  const dispatch = useDispatch();
   const isMenuOpen = useAppSelector(state => {
-    return state.isMenuOpen
+    return state.isMenuOpen.menuOpen
   });
 
   function closeMenu(event:  React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.stopPropagation();
-    dispatch(setMenuOpenActionCreator(false));
+    dispatch(setMenuOpen(false));
   }
 
-
   return (
-    <div className={`menu ${isMenuOpen ? "menu_opened" : ""}`} onClick={() => dispatch(setMenuOpenActionCreator(true))}>
+    <div className={`menu ${isMenuOpen ? "menu_opened" : ""}`} onClick={() => dispatch(setMenuOpen(true))}>
       <div className="menu__header">
         <img alt="Логотип сайта" src={logo as unknown as string} />
         <Button

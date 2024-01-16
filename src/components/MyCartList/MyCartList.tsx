@@ -8,12 +8,12 @@ import { useAppSelector } from "../../redux/hooks";
 function MyCartList() {
 
   const totalPrice = useAppSelector((state) => {
-    return state.orders.reduce((acc, product) => {
+    return state.orders.orders.reduce((acc, product) => {
       return (acc += product.quantity * product.price);
     }, 0);
   });
 
-  const orders = useAppSelector((state) => state.orders);
+  const orders = useAppSelector((state) => state.orders.orders);
 
   const showOrders = (orders: IOrder[]) => {
     return (

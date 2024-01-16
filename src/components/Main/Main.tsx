@@ -3,15 +3,15 @@ import Supplies from "../Supplies/Supplies";
 import "./Main.css";
 import Menu from '../Menu/Menu';
 import { useCallback } from 'react';
-import { addOrderActionCreator } from "../../redux/orders/ordersActions";
 import { ICard } from "../../types/ICard";
-import { useOrdersDispatch } from "../../redux/hooks";
+import { addOrder } from '../../redux/orders/ordersSlice';
+import { useDispatch } from "react-redux";
 
 function Main() {
-  const dispatch = useOrdersDispatch();
+  const dispatch = useDispatch();
 
   const addToOrder = useCallback((card: ICard) => {
-    dispatch(addOrderActionCreator(card));
+    dispatch(addOrder(card));
   }, [dispatch]);
 
 
